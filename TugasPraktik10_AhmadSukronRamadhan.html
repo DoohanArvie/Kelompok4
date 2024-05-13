@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Praktik 10</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      * {
+        font-family: "Poppins";
+      }
+      h1 {
+        margin-top: 0;
+      }
+      .gambar {
+        display: flex;
+        margin-bottom: 10px;
+      }
+      img {
+        margin-right: 10px;
+      }
+      table {
+        width: 100%;
+        max-width: 1220px;
+        border-collapse: collapse;
+      }
+
+      thead th,
+      tbody td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      thead th {
+        background-color: #f2f2f2;
+        text-align: center;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        border: #f2f2f2 solid 1px;
+        border-radius: 5px;
+        background-color: chocolate;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: rgb(144, 64, 7);
+      }
+    </style>
+  </head>
+  <body>
+    <hr />
+    <h1>Penerapan Event Mouse pada Javascript</h1>
+    <h3>Silahkan klik gambar dibawah ini ya.</h3>
+    <div class="gambar">
+      <img id="img1" src="img/ronaldo.webp" width="400px" alt="" />
+      <img id="img2" src="img/messi.webp" width="400px" alt="" />
+      <img id="img3" src="img/van.jpg" width="400px" alt="" />
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Posisi</th>
+          <th>Tim</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="nama"></td>
+          <td class="pos"></td>
+          <td class="tim"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="remove">remove stat</button>
+    <button class="remove_bg">remove background</button>
+
+    <script>
+      let nama = document.querySelector(".nama");
+      let pos = document.querySelector(".pos");
+      let tim = document.querySelector(".tim");
+      let img1 = document.getElementById("img1");
+      let img2 = document.getElementById("img2");
+      let img3 = document.getElementById("img3");
+      let remove = document.querySelector(".remove");
+      let remove_bg = document.querySelector(".remove_bg");
+
+      img1.addEventListener("click", function (e) {
+        const newColor = generateRandomColor();
+        nama.innerText = "Cristiano Ronaldo";
+        pos.innerText = "Striker,Sayap kiri";
+        tim.innerText = "Manchester United, Real Madrid, Juventus, Al nassr";
+
+        nama.style.backgroundColor = newColor;
+        pos.style.backgroundColor = newColor;
+        tim.style.backgroundColor = newColor;
+      });
+      img2.addEventListener("click", function () {
+        const newColor2 = generateRandomColor();
+        nama.innerText = "Lionel Messi";
+        pos.innerText = "Gelandang, Sayap kanan";
+        tim.innerText = "Barcelona, PSG, Inter Miami";
+
+        nama.style.backgroundColor = newColor2;
+        pos.style.backgroundColor = newColor2;
+        tim.style.backgroundColor = newColor2;
+      });
+      img3.addEventListener("click", function () {
+        const newColor3 = generateRandomColor();
+        nama.innerText = "Robin Van Persie";
+        pos.innerText = "Striker, Sayap kanan";
+        tim.innerText = "Manchester United, Arsenal";
+
+        nama.style.backgroundColor = newColor3;
+        pos.style.backgroundColor = newColor3;
+        tim.style.backgroundColor = newColor3;
+      });
+
+      const generateRandomColor = () => {
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+
+        return `rgb(${r}, ${g}, ${b})`;
+      };
+
+      remove.addEventListener("click", function () {
+        nama.innerText = "";
+        pos.innerText = "";
+        tim.innerText = "";
+      });
+      remove_bg.addEventListener("click", function () {
+        nama.style.backgroundColor = "";
+        pos.style.backgroundColor = "";
+        tim.style.backgroundColor = "";
+      });
+    </script>
+  </body>
+</html>
