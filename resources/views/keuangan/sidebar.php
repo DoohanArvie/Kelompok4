@@ -2,7 +2,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav sidebar sidebar-dark accordion " id="accordionSidebar" style="background-color: #FF204E">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
@@ -17,7 +17,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('dashboard')}}">
+        <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -32,7 +32,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('daftarPemasukan')}}">
+        <a class="nav-link collapsed" href="pendapatan.php">
           <i class="fas fa-fw fa-arrow-up"></i>
           <span>Pendapatan</span>
         </a>
@@ -40,7 +40,7 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('daftarPengeluaran')}}" >
+        <a class="nav-link collapsed" href="pengeluaran.php" >
           <i class="fas fa-fw fa-arrow-down"></i>
           <span>Pengeluaran</span>
         </a>

@@ -34,7 +34,14 @@ class PemasukanController extends Controller
     return redirect(route('daftarPemasukan'))->with('success', 'Data Berhasil Di Simpan');
   }
 
-
+  public function edit(string $id)
+  {
+    //
+    $pemasukan = Pemasukan::findOrFail($id);
+    return view('pendapatan.index', [
+      'pemasukans' => $pemasukan
+    ]);
+  }
 
 
   public function update(Request $request, $id)
@@ -49,7 +56,7 @@ class PemasukanController extends Controller
     $pemasukan = Pemasukan::findOrFail($id);
     // Update the record with the validated data
     $pemasukan->update($validatedData);
-    
+
     $pemasukan->update([
       'tgl_pemasukan' => $request->tgl_pemasukan,
       'jumlah' => $request->jumlah,
@@ -57,4 +64,12 @@ class PemasukanController extends Controller
     ]);
     return redirect(route('daftarPemasukan'))->with('success', 'Data Berhasil DiUpdate');
   }
+
+  public function destroy(string $id)
+    {
+        //
+        $pemasukan = Pemasukan::findOrFail($id);
+        $pemasukan->delete();
+        return redirect(route('daftarPemasukan'))->with('success', 'Data Berhasil Dihapus');
+    }
 }

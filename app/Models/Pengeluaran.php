@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Pengeluaran extends Model
 {
     use HasFactory;
+
+    protected $table = 'pengeluarans';
+    protected $primaryKey = 'id_pengeluaran';
     protected $fillable = [
         "tgl_pengeluaran",
         "jumlah",
         "sumber_pengeluaran",
-    
+
     ];
 }

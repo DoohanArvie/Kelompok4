@@ -46,7 +46,7 @@
             <!-- Project Card Example -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">PendapatanKu</h6>
+                <h6 class="m-0 font-weight-bold text-primary">PengeluaranKu</h6>
               </div>
               <div class="card-body">
 
@@ -83,11 +83,11 @@
 
           <!-- DataTales Example -->
           <div class="col-xl-8 col-lg-7">
-            <button type="button" class="btn btn-success" style="margin:5px" data-toggle="modal" data-target="#myModalTambah"><i class="fa fa-plus"> Pemasukan</i></button><br>
+            <button type="button" class="btn btn-success" style="margin:5px" data-toggle="modal" data-target="#myModalTambah"><i class="fa fa-plus"> Pengeluaran</i></button><br>
 
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Transaksi Masuk</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Transaksi Keluar</h6>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -102,17 +102,17 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($pemasukans as $pemasukan)
+                      @foreach ($pengeluarans as $pengeluaran)
                           
                      
                       <tr>
                         <td>{{$loop->index + 1}}</td>
-                        <td>{{$pemasukan->tgl_pemasukan}}</td>
-                        <td>Rp.{{number_format($pemasukan->jumlah)}}</td>
-                        <td>{{$pemasukan->sumber_pemasukan}}</td>
+                        <td>{{$pengeluaran->tgl_pengeluaran}}</td>
+                        <td>Rp.{{number_format($pengeluaran->jumlah)}}</td>
+                        <td>{{$pengeluaran->sumber_pengeluaran}}</td>
                         <td>
                           <!-- Button untuk modal -->
-                          <a href="#" type="button" class="fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{$pemasukan->id_pemasukan}}"></a>
+                          <a href="#" type="button" class="fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{$pengeluaran->id_pengeluaran}}"></a>
                         </td>
                       </tr>
                       @endforeach
@@ -164,38 +164,38 @@
 
 
   <!-- Modal Edit Pemasukan -->
-  @foreach($pemasukans as $pemasukan)
-  <div class="modal fade" id="myModal{{$pemasukan->id_pemasukan}}" role="dialog">
+  @foreach($pengeluarans as $pengeluaran)
+  <div class="modal fade" id="myModal{{$pengeluaran->id_pengeluaran}}" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Ubah Data Pemasukan</h4>
+          <h4 class="modal-title">Ubah Data Pengeluaran</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
         <div class="modal-body">
           {{-- form edit data pemasukan --}}
           
-          <form role="form" action="{{route('updatePemasukan', ['id' =>$pemasukan->id_pemasukan] ) }}" method="post">
+          <form role="form" action="{{route('updatePengeluaran', ['id' =>$pengeluaran->id_pengeluaran] ) }}" method="post">
             @csrf
-            <input type="hidden" name="id_pemasukan" value="{{$pemasukan->id_pemasukan}}">
+            <input type="hidden" name="id_pengeluaran" value="{{$pengeluaran->id_pengeluaran}}">
             <div class="form-group">
               <label>Tanggal</label>
-              <input type="date" name="tgl_pemasukan" id="tgl_pemasukan" class="form-control" value="{{ $pemasukan->tgl_pemasukan}}">
+              <input type="date" name="tgl_pengeluaran" id="tgl_pengeluaran" class="form-control" value="{{ $pengeluaran->tgl_pengeluaran}}">
             </div>
             <div class="form-group">
               <label>Jumlah</label>
-              <input type="text" name="jumlah" id="jumlah" class="form-control" value="{{ $pemasukan->jumlah}}">
+              <input type="text" name="jumlah" id="jumlah" class="form-control" value="{{ $pengeluaran->jumlah}}">
             </div>
             <div class="form-group">
-              <label>Sumber Pemasukan</label>
-              <input type="text" name="sumber_pemasukan" id="sumber_pemasukan" class="form-control" value="{{$pemasukan->sumber_pemasukan}}">
+              <label>Sumber Pengeluaran</label>
+              <input type="text" name="sumber_pengeluaran" id="sumber_pengeluaran" class="form-control" value="{{$pengeluaran->sumber_pengeluaran}}">
             </div>
             
             <div class="modal-footer">
               <button type="submit" class="btn btn-success">Ubah</button>
-              <a href="{{route('deletePemasukan', ['id' =>$pemasukan->id_pemasukan] ) }}" onclick="confirm('Anda Yakin Ingin Menghapus?')" class="btn btn-danger">Hapus</a>
+              <a href="{{route('deletePengeluaran', ['id' =>$pengeluaran->id_pengeluaran] ) }}" onclick="confirm('Anda Yakin Ingin Menghapus?')" class="btn btn-danger">Hapus</a>
               <button type="button" class="btn btn-default" data-dismiss="modal">Keluar</button>
             </div>
           </form>
@@ -211,24 +211,24 @@
       <!-- konten modal-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Tambah Pendapatan</h4>
+          <h4 class="modal-title">Tambah Pengeluaran</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           {{-- form tambah data --}}
-          <form action="{{route('storePemasukan')}}" method="POST">
+          <form action="{{route('storePengeluaran')}}" method="POST">
             @csrf
             <div class="form-group">
               <label>Tanggal</label>
-              <input type="date" class="form-control" name="tgl_pemasukan" id="tgl_pemasukan">
+              <input type="date" class="form-control" name="tgl_pengeluaran" id="tgl_pengeluaran">
             </div>
             <div class="form-group">
               <label>Jumlah</label>
               <input type="number" class="form-control" name="jumlah" id="jumlah">
             </div>
             <div class="form-group">
-              <label>Sumber Pemasukan</label>
-              <input type="text" class="form-control" name="sumber_pemasukan" id="sumber_pemasukan">
+              <label>Sumber pengeluaran</label>
+              <input type="text" class="form-control" name="sumber_pengeluaran" id="sumber_pengeluaran">
             </div>
             
             <div class="modal-footer">
