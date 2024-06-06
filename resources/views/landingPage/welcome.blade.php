@@ -48,7 +48,7 @@
                     <li><a href="">Features</a></li>
                     <li><a href="">Pricing</a></li>
                     <li><a href="">Blog</a></li>
-                    
+
                     <li><a href="{{route('login')}}">Login</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -81,9 +81,9 @@
                     <div class="row">
                         <div class="col-lg-8 text-center text-lg-start">
                             <h1 data-aos="fade-right">Website Pencatatan Keuangan</h1>
-                            <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Lorem ipsum dolor sit amet,
-                                consectetur
-                                adipisicing elit.</p>
+                            <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Marabunta Money is a user-friendly online platform designed to help individuals and businesses manage their finances efficiently.
+                            The website offers a range of tools for budgeting, expense tracking, and financial planning. Users can easily record and categorize their income and expenditures, generate detailed
+                 f          inancial reports, and set personal or business financial goals.</p>
                             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a
                                     href="{{ route('register') }}" class="btn btn-outline-white">Get started</a></p>
                         </div>
@@ -107,40 +107,38 @@
 
                 <div class="row justify-content-center text-center mb-5">
                     <div class="col-md-5" data-aos="fade-up">
-                        <h2 class="section-heading">Save your time to using SoftLand</h2>
+                        <h2 class="section-heading">makes it easier to manage finances using Marabunta Money</h2>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="">
                         <div class="feature-1 text-center">
-                            <div class="wrap-icon icon-1">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <h3 class="mb-3">Explore Your Team</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <div class="wrap-icon icon-1">
+                            <i class="bi bi-bank"></i>
+                        </div>
+                        <h3 class="mb-3">Expense and Income Tracking</h3>
+                        <p>Log daily transactions with ease.</p>
                         </div>
                     </div>
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="feature-1 text-center">
-                            <div class="wrap-icon icon-1">
-                                <i class="bi bi-brightness-high"></i>
-                            </div>
-                            <h3 class="mb-3">Digital Whiteboard</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <div class="wrap-icon icon-1">
+                            <i class="bi bi-currency-dollar"></i>
+                        </div>
+                        <h3 class="mb-3">Budgeting Tools</h3>
+                        <p>Create and manage budgets to monitor spending.</p>
                         </div>
                     </div>
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="feature-1 text-center">
-                            <div class="wrap-icon icon-1">
-                                <i class="bi bi-bar-chart"></i>
-                            </div>
-                            <h3 class="mb-3">Design To Development</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <div class="wrap-icon icon-1">
+                            <i class="bi bi-bar-chart"></i>
+                        </div>
+                        <h3 class="mb-3">Financial Reports</h3>
+                        <p>Generate comprehensive reports to analyze financial health.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -156,27 +154,27 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="step">
-                            <span class="number">01</span>
-                            <h3>Sign Up</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <span class="number">01</span>
+                        <h3>Sign Up</h3>
+                        <p>Start your journey towards better financial management by clicking the "Sign Up" button. Enter your email, create a secure strong password, and confirm the password to get started.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="step">
-                            <span class="number">02</span>
-                            <h3>Create Profile</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <span class="number">02</span>
+                        <h3>Create Profile</h3>
+                        <p>If you don't have an account, you will be directed to the registration page. Fill in your personal information such as email address, and secure password. After that, click "Register" to create your new account.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="step">
-                            <span class="number">03</span>
-                            <h3>Enjoy the app</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <span class="number">03</span>
+                        <h3>Enjoy the app</h3>
+                        <p>Once registration is complete, you can immediately enjoy all FinanceTrack features. Enjoy an intuitive user experience and tools designed to help you achieve your financial goals.</p>
                         </div>
+                    </div>
                     </div>
                 </div>
-            </div>
 
         </section>
 
@@ -218,115 +216,6 @@
             </div>
         </section>
 
-        <!-- ======= Testimonials Section ======= -->
-        <section class="section border-top border-bottom">
-            <div class="container">
-                <div class="row justify-content-center text-center mb-5">
-                    <div class="col-md-4">
-                        <h2 class="section-heading">Review From Our Users</h2>
-                    </div>
-                </div>
-                <div class="row justify-content-center text-center">
-                    <div class="col-md-7">
-
-                        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                            <div class="swiper-wrapper">
-
-                                <div class="swiper-slide">
-                                    <div class="review text-center">
-                                        <p class="stars">
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill muted"></span>
-                                        </p>
-                                        <h3>Excellent App!</h3>
-                                        <blockquote>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea
-                                                delectus pariatur, numquam
-                                                aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae
-                                                deleniti minus animi,
-                                                provident voluptates consectetur maiores quos.</p>
-                                        </blockquote>
-
-                                        <p class="review-user">
-                                            <img src="{{asset('assets/landingPage/img/person_1.jpg')}}" alt="Image"
-                                                class="img-fluid rounded-circle mb-3">
-                                            <span class="d-block">
-                                                <span class="text-black">Jean Doe</span>, &mdash; App User
-                                            </span>
-                                        </p>
-
-                                    </div>
-                                </div><!-- End testimonial item -->
-
-                                <div class="swiper-slide">
-                                    <div class="review text-center">
-                                        <p class="stars">
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill muted"></span>
-                                        </p>
-                                        <h3>This App is easy to use!</h3>
-                                        <blockquote>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea
-                                                delectus pariatur, numquam
-                                                aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae
-                                                deleniti minus animi,
-                                                provident voluptates consectetur maiores quos.</p>
-                                        </blockquote>
-
-                                        <p class="review-user">
-                                            <img src="{{asset('assets/landingPage/img/person_2.jpg')}}" alt="Image"
-                                                class="img-fluid rounded-circle mb-3">
-                                            <span class="d-block">
-                                                <span class="text-black">Johan Smith</span>, &mdash; App User
-                                            </span>
-                                        </p>
-
-                                    </div>
-                                </div><!-- End testimonial item -->
-
-                                <div class="swiper-slide">
-                                    <div class="review text-center">
-                                        <p class="stars">
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill"></span>
-                                            <span class="bi bi-star-fill muted"></span>
-                                        </p>
-                                        <h3>Awesome functionality!</h3>
-                                        <blockquote>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea
-                                                delectus pariatur, numquam
-                                                aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae
-                                                deleniti minus animi,
-                                                provident voluptates consectetur maiores quos.</p>
-                                        </blockquote>
-
-                                        <p class="review-user">
-                                            <img src="{{asset('assets/landingPage/img/person_3.jpg')}}" alt="Image"
-                                                class="img-fluid rounded-circle mb-3">
-                                            <span class="d-block">
-                                                <span class="text-black">Jean Thunberg</span>, &mdash; App User
-                                            </span>
-                                        </p>
-
-                                    </div>
-                                </div><!-- End testimonial item -->
-
-                            </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Testimonials Section -->
-
         <!-- ======= CTA Section ======= -->
         <section class="section cta-section">
             <div class="container">
@@ -351,10 +240,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h3>About SoftLand</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam
-                        aperiam
-                        dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi.</p>
+                    <h3>About Marabunta Money</h3>
+                    <p>Marabunta Money is a user-friendly online platform designed to help individuals and businesses manage their finances efficiently.
+                    The website offers a range of tools for budgeting, expense tracking, and financial planning. Users can easily record and categorize their income and expenditures,
+                    generate detailed financial reports, and set personal or business financial goals.</p>
                     <p class="social">
                         <a href="#"><span class="bi bi-twitter"></span></a>
                         <a href="#"><span class="bi bi-facebook"></span></a>
@@ -395,16 +284,7 @@
 
             <div class="row justify-content-center text-center">
                 <div class="col-md-7">
-                    <p class="copyright">&copy; Copyright SoftLand. All Rights Reserved</p>
-                    <div class="credits">
-                        <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=SoftLand
-          -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                    </div>
+                    <p class="copyright">&copy; Copyright Marabunta Money. All Rights Reserved</p>
                 </div>
             </div>
 

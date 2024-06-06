@@ -40,12 +40,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tambah Kredit</h1>
+                            <h1 class="m-0">Tambah Tagihan</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Tambah Kredit</li>
+                                <li class="breadcrumb-item active">Tambah Tagihan</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -58,43 +58,43 @@
                 <div class="container mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('storeKredit') }} " method="post">
+                            <form action="{{ route('storeTagihan') }} " method="post">
                                 @csrf
                                 <div>
                                     <input type="hidden" name="id_user" id="id_user"
                                         value="{{ Auth::user()->id_user }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Nama Kredit</label>
-                                    <input type="text" name="nama_kredit" id="nama_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Nama Kredit">
+                                    <label for="nama">Nama Tagihan</label>
+                                    <input type="text" name="nama_tagihan" id="nama_tagihan" class="form-control"
+                                        required='required' placeholder="Masukkan Nama tagihan">
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Tanggal Kredit</label>
-                                    <input type="date" name="awal_kredit" id="awal_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Tanggal Kredit">
+                                    <label for="nama">Tanggal Tagihan</label>
+                                    <input type="date" name="awal_tagihan" id="awal_tagihan" class="form-control"
+                                        required='required' placeholder="Masukkan Tanggal tagihan">
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Jatuh Tempo</label>
-                                    <input type="date" name="akhir_kredit" id="akhir_kredit" class="form-control"
+                                    <input type="date" name="akhir_tagihan" id="akhir_tagihan" class="form-control"
                                         required='required' placeholder="Masukkan Jatuh Tempo">
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Jumlah</label>
                                     <input type="number" name="jumlah" id="jumlah" class="form-control"
-                                        required='required' placeholder="Masukkan Jumlah Kredit">
+                                        required='required' placeholder="Masukkan Jumlah Tagihan">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nama">Status</label>
+                                    <label for="nama">Status Tagihan</label>
                                     <select class="form-control" name="status" id="status" required="required">
-                                        <option value="Lunas">Lunas</option>
-                                        <option value="belum Lunas" selected>Belum Lunas</option>
+                                        <option value="Sudah Bayar">Sudah Bayar</option>
+                                        <option value="Belum Bayar" selected>Belum Bayar</option>
                                     </select>
                                 </div>
 
                                 <div class="text-right">
-                                    <a href="{{ route('daftarKredit') }}" class="btn btn-outline-secondary mr-2"
+                                    <a href="{{ route('daftarTagihan') }}" class="btn btn-outline-secondary mr-2"
                                         role="button">Batal</a>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>

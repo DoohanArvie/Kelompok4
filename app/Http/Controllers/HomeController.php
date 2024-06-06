@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kredit;
+use App\Models\TagihanB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,10 @@ class HomeController extends Controller
             $usertype = Auth()->user()->userType;
             $userId = Auth::id();
 
-            // Mendapatkan tanggal awal dan akhir minggu ini
-            $startDate = Carbon::now()->startOfWeek()->format('Y-m-d');
-            $endDate = Carbon::now()->endOfWeek()->format('Y-m-d');
+            // Mendapatkan tanggal awal dan akhir bulan ini
+            $startDate = Carbon::now()->startOfMonth()->format('Y-m-d');
+            $endDate = Carbon::now()->endOfMonth()->format('Y-m-d');
+
             ////////////////////////  Pemasukan
             // Mengambil data pemasukan berdasarkan id_user
             $pemasukan = Pemasukan::where('id_user', $userId)->get();
@@ -54,25 +56,44 @@ class HomeController extends Controller
                 ->where('status', 'lunas')
                 ->whereBetween('akhir_kredit', [$startDate, $endDate])->sum('jumlah');
 
-                $totalPengeluaranKredit = Kredit::where('id_user', $userId)
+            $totalPengeluaranKredit = Kredit::where('id_user', $userId)
                 ->where('status', 'lunas')
                 ->sum('jumlah');
+
+            // Tagihan
+            $tagihan = TagihanB::where('id_user', $userId)->get();
+
+            $tagihanHariIni = TagihanB::where('id_user', $userId)
+                ->where('status', 'Sudah Bayar')
+                ->whereDate('akhir_tagihan', Carbon::today())->sum('jumlah');
+
+            $tagihanMingguIni = TagihanB::where('id_user', $userId)
+                ->where('status', 'Sudah Bayar')
+                ->whereBetween('akhir_tagihan', [$startDate, $endDate])->sum('jumlah');
+
+            $totalPengeluaranTagihan = TagihanB::where('id_user', $userId)
+                ->where('status', 'Sudah Bayar')
+                ->sum('jumlah');
+
 
 
             $pengeluaranKredit = $kreditHariIni + $pengeluaranHariIni;
             $pengeluaranKreditMingguIni = $kreditMingguIni + $pengeluaranMingguIni;
 
+            $pengeluaranTagihan = $tagihanHariIni + $kreditHariIni + $pengeluaranHariIni;
+            $pengeluaranTagihanMingguIni = $tagihanMingguIni + $kreditMingguIni + $pengeluaranMingguIni;
+
             // Hitung sisa uang
-            $sisaUang = $totalPemasukan - $totalPengeluaran - $totalPengeluaranKredit;
+            $sisaUang = $totalPemasukan - $totalPengeluaran - $totalPengeluaranKredit - $totalPengeluaranTagihan;
 
             // jumlah karyawan
             $karyawan = Karyawan::where('id_user', $userId)->count();
 
 
             if ($usertype == 'user') {
-                return view('dashboard.index', compact('totalPemasukan', 'pemasukanHariIni', 'pemasukanMingguIni', 'totalPengeluaran', 'pengeluaranHariIni', 'pengeluaranMingguIni', 'sisaUang', 'karyawan', 'kredit', 'kreditHariIni', 'pengeluaranKredit', 'pengeluaranKreditMingguIni', 'pengeluaranKredit'));
+                return view('dashboard.index', compact('totalPemasukan', 'pemasukanHariIni', 'pemasukanMingguIni', 'totalPengeluaran', 'pengeluaranHariIni', 'pengeluaranMingguIni', 'sisaUang', 'karyawan', 'kredit', 'kreditHariIni', 'pengeluaranKredit', 'pengeluaranKreditMingguIni', 'pengeluaranKredit', 'tagihan', 'tagihanHariIni', 'tagihanMingguIni', 'totalPengeluaranTagihan', 'pengeluaranTagihan', 'pengeluaranTagihanMingguIni'));
             } else if ($usertype == 'admin') {
-                return view('admin.index', compact('totalPemasukan', 'pemasukanHariIni', 'pemasukanMingguIni', 'totalPengeluaran', 'pengeluaranHariIni', 'pengeluaranMingguIni', 'sisaUang', 'karyawan', 'kredit', 'kreditHariIni', 'pengeluaranKredit', 'pengeluaranKreditMingguIni', 'pengeluaranKredit'));
+                return view('admin.index', compact('totalPemasukan', 'pemasukanHariIni', 'pemasukanMingguIni', 'totalPengeluaran', 'pengeluaranHariIni', 'pengeluaranMingguIni', 'sisaUang', 'karyawan', 'kredit', 'kreditHariIni', 'pengeluaranKredit', 'pengeluaranKreditMingguIni', 'pengeluaranKredit', 'tagihan', 'tagihanHariIni', 'tagihanMingguIni', 'totalPengeluaranTagihan', 'pengeluaranTagihan', 'pengeluaranTagihanMingguIni'));
             } else {
                 return redirect()->back();
             }

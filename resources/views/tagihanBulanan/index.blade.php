@@ -147,9 +147,10 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Karyawan</h1>
-                        </div><!-- /.col -->
+                        <div class="col-sm-7">
+                            <h1 class="m-0">Tagihan</h1>
+                        </div>
+                        <!-- /.col -->
                         {{-- <div class="col-sm-6 ">
                             <a href="{{ route('daftarPemasukan') }}"
                                 class="btn m-0 mx-3 px-3 float-sm-right bg-primary text-white" role="button">Kembali</a>
@@ -169,40 +170,38 @@
                             <div class="container mt-5">
                                 <div class="card">
                                     <div class="card-header text-right">
-                                        <a href="{{ route('createKaryawan') }}" class="btn btn-success"
-                                            role="button">Tambah Karyawan</a>
+                                        <a href="{{ route('createTagihan') }}" class="btn btn-success"
+                                            role="button">Tambah Tagihan</a>
                                     </div>
                                     <div class="card-body">
                                         <table class="table table-hover table-bordered text-center" id="data-table">
                                             <thead>
                                                 <tr>
                                                     <th>No.</th>
-                                                    <th>Nama</th>
-                                                    <th>Posisi</th>
-                                                    <th>Gaji</th>
-                                                    <th>Umur</th>
-                                                    <th>Kontak</th>
-                                                    <th>Alamat</th>
+                                                    <th>Nama Tagihan</th>
+                                                    <th>Tanggal Tagihan</th>
+                                                    <th>Jatuh Tempo</th>
+                                                    <th>Jumlah Tagihan</th>
+                                                    <th>Status</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($karyawans as $karyawan)
+                                                @foreach ($tagihans as $tagihan)
                                                     <tr>
                                                         <td>{{ $loop->index + 1 }}</td>
-                                                        <td>{{ $karyawan->nama }}</td>
-                                                        <td>{{ $karyawan->posisi }}</td>
-                                                        <td>{{ number_format($karyawan->gaji) }}</td>
-                                                        <td>{{ number_format($karyawan->umur) }}</td>
-                                                        <td>{{ $karyawan->kontak }}</td>
-                                                        <td>{{ $karyawan->alamat }}</td>
+                                                        <td>{{ $tagihan->nama_tagihan }}</td>
+                                                        <td>{{ $tagihan->awal_tagihan }}</td>
+                                                        <td>{{ $tagihan->akhir_tagihan }}</td>
+                                                        <td>{{ number_format($tagihan->jumlah) }}</td>
+                                                        <td>{{ $tagihan->status }}</td>
                                                         <td>
-                                                            <a href="{{ route('editKaryawan', ['id' => $karyawan->id_karyawan]) }}"
+                                                            <a href="{{ route('editTagihan', ['id' => $tagihan->id_tB]) }}"
                                                                 class="btn btn-warning btn-sm">
                                                                 <i class="fa-solid fa-pen-to-square"></i>
                                                                 Edit</a>
                                                             <a onclick="confirmDelete(this)"
-                                                                data-url="{{ route('deleteKaryawan', ['id' => $karyawan->id_karyawan]) }}"class="btn btn-danger btn-sm text-white "
+                                                                data-url="{{ route('deleteTagihan', ['id' => $tagihan->id_tB]) }}"class="btn btn-danger btn-sm text-white "
                                                                 style="cursor:pointer; z-index:999">
                                                                 <i class="fa-solid fa-trash"></i>
                                                                 Hapus</a>
@@ -229,12 +228,11 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white"
-        style="border-top: 3px solid #6777ef;background-color: #ffffff;>
+    <footer class="sticky-footer bg-white" style="border-top: 3px solid #6777ef;background-color: #ffffff;>
         <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Kelompok XX 2023</span>
-        </div>
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Kelompok XX 2023</span>
+            </div>
         </div>
     </footer>
     <!-- End of Footer -->

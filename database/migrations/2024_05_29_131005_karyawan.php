@@ -21,6 +21,9 @@ return new class extends Migration
             $table->integer('umur');
             $table->string('alamat');
             $table->string('kontak');
+            $table->date('tgl_gajian');
+            $table->npwp('tgl_gajian');
+            $table->boolean('bpjs');
             $table->timestamps();
         });
     }
