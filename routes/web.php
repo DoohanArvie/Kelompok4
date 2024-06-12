@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LaporanKeuanganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -78,9 +79,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/kredit/create', [App\Http\Controllers\KreditController::class, 'create'])->name('createKredit');
     Route::post('/kredit/create', [App\Http\Controllers\KreditController::class, 'store'])->name('storeKredit');
     Route::get('/kredit/{id}/edit', [App\Http\Controllers\KreditController::class, 'edit'])->name('editKredit');
-    Route::post('/kredit/{id}/edit', [App\Http\Controllers\KreditController::class, 'update'])->name('updateKredit');
+    Route::put('/kredit/{id}/edit', [App\Http\Controllers\KreditController::class, 'update'])->name('updateKredit');
     Route::get('/kredit/{id}/delete', [App\Http\Controllers\KreditController::class, 'destroy'])->name('deleteKredit');
-});
+    
+    Route::get('/download-laporan', [LaporanKeuanganController::class, 'downloadLaporan'])->name('download.laporan');
+
+ });
 
 
 

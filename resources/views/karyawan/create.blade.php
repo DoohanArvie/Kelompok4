@@ -75,8 +75,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="gaji">Gaji</label>
-                                    <input type="number" name="gaji" id="gaji" class="form-control"
-                                        required='required' placeholder="Masukkan Gaji Karyawan">
+                                    <select name="gaji" id="gaji" class="form-control" required='required'>
+                                        <option value="" disabled selected>Pilih Gaji Karyawan</option>
+                                        <option value="3000000">Rp 3.000.000</option>
+                                        <option value="4000000">Rp 4.000.000</option>
+                                        <option value="5000000">Rp 5.000.000</option>
+                                        <option value="6000000">Rp 6.000.000</option>
+                                        <option value="7000000">Rp 7.000.000</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="umur">Umur</label>
@@ -106,9 +112,6 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-
-
 
     </div>
     <!-- End of Main Content -->

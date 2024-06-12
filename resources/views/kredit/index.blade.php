@@ -19,7 +19,88 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
 
+        .btn {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .table {
+            animation: slideInUp 0.8s ease-in-out;
+        }
+
+        .card-header .btn-success {
+            background-color: #4e73df;
+            border-color: #4e73df;
+        }
+
+        .card-header .btn-success:hover {
+            background-color: #2e59d9;
+            border-color: #2653d4;
+        }
+
+        .table-bg {
+            position: relative;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table thead {
+            background-color: #333;
+            color: white;
+        }
+
+        .table-bg::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, rgba(78, 115, 223, 0.1), rgba(28, 200, 138, 0.1));
+            z-index: -1;
+            border-radius: 15px;
+            filter: blur(15px);
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .content-header {
+            animation: fadeInDown 0.8s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-20%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -111,6 +192,7 @@
                                                     <th>No.</th>
                                                     <th>Nama Kredit</th>
                                                     <th>Tanggal Kredit</th>
+                                                    <th>Tenor</th>
                                                     <th>Jatuh Tempo</th>
                                                     <th>Jumlah Kredit</th>
                                                     <th>Status</th>
@@ -123,15 +205,20 @@
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $kredit->nama_kredit }}</td>
                                                         <td>{{ $kredit->awal_kredit }}</td>
+                                                        <td>{{ $kredit->tenor }}</td>
                                                         <td>{{ $kredit->akhir_kredit }}</td>
                                                         <td>{{ number_format($kredit->jumlah) }}</td>
                                                         <td>{{ $kredit->status }}</td>
                                                         <td>
                                                             <a href="{{ route('editKredit', ['id' => $kredit->id_kredit]) }}"
-                                                                class="btn btn-warning btn-sm">Edit</a>
+                                                                class="btn btn-warning btn-sm">
+                                                                <i class="fa-solid fa-pen-to-square"></i>
+                                                                Edit</a>
                                                             <a onclick="confirmDelete(this)"
                                                                 data-url="{{ route('deleteKredit', ['id' => $kredit->id_kredit]) }}"class="btn btn-danger btn-sm text-white "
-                                                                style="cursor:pointer; z-index:999">Hapus</a>
+                                                                style="cursor:pointer; z-index:999">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                                Hapus</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -155,7 +242,7 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white">
+    <footer class="sticky-footer bg-white" style="border-top: 3px solid #6777ef;background-color: #ffffff;>
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
                 <span>Copyright &copy; Kelompok XX 2023</span>

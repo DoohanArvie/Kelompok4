@@ -2,15 +2,17 @@
   <div id="wrapper">
 
       <!-- Sidebar -->
-      <ul class="navbar-nav sidebar sidebar-dark accordion " id="accordionSidebar" style="background-color: #FF204E">
+      <ul class="navbar-nav sidebar sidebar-dark accordion " id="accordionSidebar" style="background-color: #6777ef">
 
           <!-- Sidebar - Brand -->
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
-              <div class="sidebar-brand-icon rotate-n-15">
-                  <i class="fas fa-chart-pie"></i>
+              <div class="sidebar-brand-icon">
+                <i class="fa-brands fa-monero"></i>
               </div>
               <div class="sidebar-brand-text mx-3">Marabunta Money</div>
           </a>
+
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
           <!-- Divider -->
           <hr class="sidebar-divider my-0">
@@ -18,7 +20,8 @@
           <!-- Nav Item - Dashboard -->
           <li class="nav-item active">
               <a class="nav-link" href="{{ route('home') }}">
-                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                  {{-- <i class="fa fa-home"></i> --}}
+                  <i class="fa-solid fa-house"></i>
                   <span>Dashboard</span></a>
           </li>
 
@@ -33,7 +36,7 @@
           <!-- Nav Item - Pages Collapse Menu -->
           <li class="nav-item">
               <a class="nav-link collapsed" href="{{ route('daftarPemasukan') }}">
-                  <i class="fas fa-fw fa-arrow-up"></i>
+                  <i class="fa-solid fa-money-bill-trend-up"></i>
                   <span>Pendapatan</span>
               </a>
           </li>
@@ -41,7 +44,7 @@
           <!-- Nav Item - Utilities Collapse Menu -->
           <li class="nav-item">
               <a class="nav-link collapsed" href="{{ route('daftarPengeluaran') }}">
-                  <i class="fas fa-fw fa-arrow-down"></i>
+                  <i class="fa-solid fa-money-bill-transfer"></i>
                   <span>Pengeluaran</span>
               </a>
           </li>
@@ -57,7 +60,7 @@
           <!-- Nav Item - Pages Collapse Menu -->
           <li class="nav-item">
               <a class="nav-link collapsed" href="{{ route('daftarKaryawan') }}">
-                  <i class="fas fa-fw fa-users"></i>
+                  <i class="fa-solid fa-user-group"></i>
                   <span>Karyawan</span>
               </a>
           </li>
@@ -73,19 +76,28 @@
           <!-- Nav Item - Charts -->
           <li class="nav-item">
               <a class="nav-link" href="{{ route('daftarKredit') }}">
-                  <i class="fas fa-fw fa-chart-area"></i>
+                  <i class="fa-solid fa-chart-area"></i>
                   <span>Kredit</span></a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('daftarKredit') }}">
+                  <i class="fa-solid fa-chart-area"></i>
+                  <span>Tagihan Bulanan</span></a>
+          </li>
 
+          <hr class="sidebar-divider">
+
+          <div class="sidebar-heading">
+            LAPORAN
+        </div>
           <!-- Nav Item - Tables -->
           <li class="nav-item">
               <a class="nav-link" href="laporan.php">
-                  <i class="fas fa-fw fa-table"></i>
+                  <i class="fa-solid fa-chart-pie"></i>
                   <span>Laporan</span></a>
           </li>
 
           <!-- Divider -->
-          <hr class="sidebar-divider d-none d-md-block">
 
           <!-- Sidebar Toggler (Sidebar) -->
           <div class="text-center d-none d-md-inline">

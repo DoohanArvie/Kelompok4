@@ -13,6 +13,7 @@
     <title>Keuangan - Admin</title>
 
     <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -52,9 +53,9 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                <a href="export-semua.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                        class="fas fa-download fa-sm text-white-50"></i> Download Laporan</a>
-            </div>
+                <a href="{{ route('download.laporan') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fa-solid fa-download fa-sm text-white-50"></i> Download Laporan</a>
+                </div>
 
             <!-- Content Row -->
             <div class="row">
@@ -113,7 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                    <i class="fa-solid fa-wallet fa-2x text-gray-300"></i>
                                 </div>
                             </div>
 
@@ -132,7 +133,7 @@
                                     <div class="h5 mb-0 font-weight-bold text-gray-800 ">{{ $karyawan }}</div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                    <i class="fa-solid fa-user-group fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
@@ -223,9 +224,9 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white">
+    <footer class="sticky-footer bg-white" style="border-top: 3px solid #6777ef;background-color: #ffffff;">
         <div class="container my-auto">
-            <div class="copyright text-center my-auto">
+            <div class="copyright text-center my-auto" >
                 <span>Copyright &copy; Kelompok XX 2023</span>
             </div>
         </div>
@@ -267,9 +268,10 @@
     {{-- dougnut chart --}}
     <script>
         // Wait for the DOM to fully load
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Set new default font family and font color to mimic Bootstrap's default styling
-            Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+            Chart.defaults.global.defaultFontFamily = 'Nunito',
+                '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
             Chart.defaults.global.defaultFontColor = '#858796';
 
             // Dynamic data from PHP
@@ -315,7 +317,8 @@
     {{-- area chart --}}
     <script>
         // Set new default font family and font color to mimic Bootstrap's default styling
-        Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontFamily = 'Nunito',
+            '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = '#858796';
 
         function number_format(number, decimals, dec_point, thousands_sep) {
@@ -359,7 +362,7 @@
                     pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                     pointHitRadius: 10,
                     pointBorderWidth: 2,
-                    data: @json($pemasukanMingguIni),
+                    data: "{{ json_encode($pemasukanMingguIni) }}",
                 }],
             },
             options: {

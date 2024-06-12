@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pemasukan;
 use App\Models\Sumber;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\Validator;
 
 class PemasukanController extends Controller
@@ -16,16 +14,15 @@ class PemasukanController extends Controller
     {
         $userId = Auth::id(); // Mengambil ID pengguna yang sedang login
         $pemasukans = Pemasukan::where('id_user', $userId)->get(); // Mengambil data pemasukan berdasarkan id_user
-        return view('pemasukan.index', compact('pemasukans'));
+        $sumbers = Sumber::where('tipe_sumber', 'pemasukan')->get(); // Mengambil semua data sumber pemasukan dengan tipe 'pemasukan'
+        
+        return view('pemasukan.index', compact('pemasukans', 'sumbers'));
     }
 
     public function create()
     {
-        //
         $sumbers = Sumber::where('tipe_sumber', 'pemasukan')->get();
-        return view('pemasukan.create', [
-            'sumbers' => $sumbers
-        ]);
+        return view('pemasukan.create', ['sumbers' => $sumbers]);
     }
 
     public function store(Request $request)
@@ -51,7 +48,6 @@ class PemasukanController extends Controller
         return redirect(route('daftarPemasukan'))->with('success', 'Data Berhasil Disimpan');
     }
 
-
     public function edit(string $id)
     {
         $sumbers = Sumber::where('tipe_sumber', 'pemasukan')->get();
@@ -69,7 +65,7 @@ class PemasukanController extends Controller
             'id_sumber' => 'required|integer',
             'tgl_pemasukan' => 'required|date',
             'jumlah' => 'required|numeric',
-        ]); 
+        ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
