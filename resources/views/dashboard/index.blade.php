@@ -53,9 +53,9 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                <a href="export-semua.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <a href="{{ route('download.laporan') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fa-solid fa-download fa-sm text-white-50"></i> Download Laporan</a>
-            </div>
+                </div>
 
             <!-- Content Row -->
             <div class="row">
@@ -75,7 +75,7 @@
                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                 </div>
                             </div>
-                        </div> &nbsp Bulanan : Rp.{{ number_format($pemasukanMingguIni) }}
+                        </div> &nbsp Mingguan : Rp.{{ number_format($pemasukanMingguIni) }}
                     </div>
                 </div>
 
@@ -88,14 +88,14 @@
                                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Pengeluaran
                                         (Hari Ini)</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                        Rp.{{ number_format($pengeluaranTagihan) }}</div>
+                                        Rp.{{ number_format($pengeluaranKredit) }}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                 </div>
                             </div>
-                        </div> &nbsp Bulanan : Rp.
-                        {{ number_format($pengeluaranTagihanMingguIni) }}
+                        </div> &nbsp Mingguan : Rp.
+                        {{ number_format($pengeluaranKreditMingguIni) }}
                     </div>
                 </div>
 
@@ -224,7 +224,7 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white" style="border-top: 3px solid #6777ef;background-color: #ffffff;>
+    <footer class="sticky-footer bg-white" style="border-top: 3px solid #6777ef;background-color: #ffffff;">
         <div class="container my-auto">
             <div class="copyright text-center my-auto" >
                 <span>Copyright &copy; Kelompok XX 2023</span>
@@ -362,7 +362,7 @@
                     pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                     pointHitRadius: 10,
                     pointBorderWidth: 2,
-                    data: @json($pemasukanMingguIni),
+                    data: "{{ json_encode($pemasukanMingguIni) }}",
                 }],
             },
             options: {

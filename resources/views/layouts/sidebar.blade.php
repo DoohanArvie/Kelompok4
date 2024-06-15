@@ -80,7 +80,7 @@
                   <span>Kredit</span></a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('daftarTagihan') }}">
+              <a class="nav-link" href="{{ route('daftarKredit') }}">
                   <i class="fa-solid fa-chart-area"></i>
                   <span>Tagihan Bulanan</span></a>
           </li>

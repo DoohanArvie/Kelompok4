@@ -202,11 +202,19 @@
                     <div class="row mt-3">
 
                         {{-- sumber pendapatan --}}
-                        <div class="col-lg-7 mb-4">
+                        <div class="col-lg-5 mb-5">
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-white">Sumber Pendapatan</h6>
+                                </div>
+                                
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        @foreach ($sumbers as $sumber)
+                                            <li class="list-group-item">{{ $loop->index + 1 }}. {{ $sumber->nama_sumber }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
 
                                 <div class="card-body">
@@ -217,9 +225,9 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
                             <!-- Area Chart -->
-                            <div class="card shadow mb-4">
+                            <div class="card shadow mb-7">
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-white">Pendapatan Minggu Ini</h6>
@@ -300,7 +308,7 @@
 
     <!-- Footer -->
     <footer class="sticky-footer bg-white mt-5" style="border-top: 3px solid #6777ef;background-color: #ffffff;>
-        <div class="container my-auto">
+        <div> class="container my-auto">
             <div class="copyright text-center my-auto">
                 <span>Copyright &copy; Kelompok XX 2023</span>
             </div>

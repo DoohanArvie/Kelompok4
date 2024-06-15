@@ -25,4 +25,10 @@ class Karyawan extends Model
     {
         return $this->belongsTo('App\Models\User', 'id_user');
     }
+
+    public function pengeluarans()
+    {
+        return $this->hasMany('App\Models\Pengeluaran', 'id_user', 'id_user');
+    }
+
 }

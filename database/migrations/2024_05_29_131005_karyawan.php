@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //
         Schema::create('tbl_karyawans', function (Blueprint $table) {
             $table->id('id_karyawan');
             $table->integer('id_user');
@@ -20,9 +21,6 @@ return new class extends Migration
             $table->integer('umur');
             $table->string('alamat');
             $table->string('kontak');
-            $table->date('tgl_gajian');
-            $table->string('npwp'); 
-            $table->boolean('bpjs');
             $table->timestamps();
         });
     }
@@ -32,6 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        //
         Schema::dropIfExists('tbl_karyawans');
     }
 };

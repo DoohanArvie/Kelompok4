@@ -58,47 +58,54 @@
                 <div class="container mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('updateKredit', ['id' => $kredit->id_kredit]) }} " method="post">
-                                @csrf
-                                <div>
-                                    <input type="hidden" name="id_user" id="id_user"
-                                        value="{{ Auth::user()->id_user }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Nama Kredit</label>
-                                    <input type="text" name="nama_kredit" id="nama_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Nama Kredit" value="{{ old('nama_kredit', $kredit->nama_kredit) }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Tanggal Kredit</label>
-                                    <input type="date" name="awal_kredit" id="awal_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Tanggal Kredit" value="{{ old('awal_kredit', $kredit->awal_kredit) }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Jatuh Tempo</label>
-                                    <input type="date" name="akhir_kredit" id="akhir_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Jatuh Tempo" value="{{ old('akhir_kredit', $kredit->akhir_kredit) }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Jumlah</label>
-                                    <input type="number" name="jumlah" id="jumlah" class="form-control"
-                                        required='required' placeholder="Masukkan Jumlah Kredit" value="{{ old('jumlah', $kredit->jumlah) }}">
-                                </div>
+                        <form action="{{ route('updateKredit', ['id' => $kredit->id_kredit]) }}" method="post">
+                            @csrf
+                            @method('PUT')
+                            <!-- Form fields -->
+                            <div class="form-group">
+                                <label for="nama_kredit">Nama Kredit</label>
+                                <input type="text" name="nama_kredit" id="nama_kredit" class="form-control" required placeholder="Masukkan Nama Kredit" value="{{ old('nama_kredit', $kredit->nama_kredit) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="awal_kredit">Tanggal Kredit</label>
+                                <input type="date" name="awal_kredit" id="awal_kredit" class="form-control" required placeholder="Masukkan Tanggal Kredit" onchange="calculateJatuhTempo()" value="{{ old('awal_kredit', $kredit->awal_kredit) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="tenor">Tenor</label>
+                                <select class="form-control" name="tenor" id="tenor" required onchange="calculateJatuhTempo()">
+                                    <option value="1" @if(old('tenor', $kredit->tenor) == '1') selected @endif>1 Bulan</option>
+                                    <option value="3" @if(old('tenor', $kredit->tenor) == '3') selected @endif>3 Bulan</option>
+                                    <option value="6" @if(old('tenor', $kredit->tenor) == '6') selected @endif>6 Bulan</option>
+                                    <option value="12" @if(old('tenor', $kredit->tenor) == '12') selected @endif>12 Bulan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="akhir_kredit">Jatuh Tempo</label>
+                                <input type="date" name="akhir_kredit" id="akhir_kredit" class="form-control" required readonly value="{{ old('akhir_kredit', $kredit->akhir_kredit) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlah">Jumlah</label>
+                                <select class="form-control" name="jumlah" id="jumlah" required>
+                                    <option value="1000000" @if(old('jumlah', $kredit->jumlah) == '1000000') selected @endif>Rp 1.000.000</option>
+                                    <option value="5000000" @if(old('jumlah', $kredit->jumlah) == '5000000') selected @endif>Rp 5.000.000</option>
+                                    <option value="10000000" @if(old('jumlah', $kredit->jumlah) == '10000000') selected @endif>Rp 10.000.000</option>
+                                    <option value="20000000" @if(old('jumlah', $kredit->jumlah) == '20000000') selected @endif>Rp 20.000.000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select class="form-control" name="status" id="status" required>
+                                    <option value="Lunas" @if(old('status', $kredit->status) == 'Lunas') selected @endif>Lunas</option>
+                                    <option value="belum Lunas" @if(old('status', $kredit->status) == 'Belum Lunas') selected @endif>Belum Lunas</option>
+                                </select>
+                            </div>
+                            <div class="text-right">
+                                <a href="{{ route('daftarKredit') }}" class="btn btn-outline-secondary mr-2" role="button">Batal</a>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
 
-                                <div class="form-group">
-                                    <label for="nama">Status</label>
-                                    <select value="{{ old('status', $kredit->status) }}" class="form-control" name="status" id="status" required="required">
-                                        <option value="Lunas">Lunas</option>
-                                        <option value="belum Lunas">Belum Lunas</option>
-                                    </select>
-                                </div>
 
-                                <div class="text-right">
-                                    <a href="{{ route('daftarKredit') }}" class="btn btn-outline-secondary mr-2"
-                                        role="button">Batal</a>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -154,6 +161,17 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
+
+    <script>
+        function calculateJatuhTempo() {
+            var awalKredit = document.getElementById("awal_kredit").value;
+            var tenor = document.getElementById("tenor").value;
+            var jatuhTempo = new Date(awalKredit);
+            jatuhTempo.setMonth(jatuhTempo.getMonth() + parseInt(tenor));
+            var formattedDate = jatuhTempo.toISOString().split('T')[0];
+            document.getElementById("akhir_kredit").value = formattedDate;
+        }
+    </script>
 
 </body>
 

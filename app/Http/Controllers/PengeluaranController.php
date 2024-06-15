@@ -15,16 +15,22 @@ class PengeluaranController extends Controller
     public function index()
     {
         $userId = Auth::id(); // Mengambil ID pengguna yang sedang login
-        $pengeluarans = Pengeluaran::where('id_user', $userId)->get(); // Mengambil data pemasukan berdasarkan id_user
-        return view('pengeluaran.index', compact('pengeluarans'));
+        $pengeluarans = Pengeluaran::where('id_user', $userId)->get(); // Mengambil data pengeluaran berdasarkan id_user
+        $sumbers = Sumber::where('tipe_sumber', 'pengeluaran')->get(); // Mengambil data sumber pengeluaran
+        return view('pengeluaran.index', compact('pengeluarans', 'sumbers'));
     }
 
     public function create()
     {
-        //
+        // Ambil data karyawan
+        $employees = Employee::all();
+
+        // Ambil data sumber pengeluaran
         $sumbers = Sumber::where('tipe_sumber', 'pengeluaran')->get();
+        
         return view('pengeluaran.create', [
-            'sumbers' => $sumbers
+            'sumbers' => $sumbers,
+            'employees' => $employees // Kirim data karyawan ke tampilan
         ]);
     }
 

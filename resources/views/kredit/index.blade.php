@@ -192,6 +192,7 @@
                                                     <th>No.</th>
                                                     <th>Nama Kredit</th>
                                                     <th>Tanggal Kredit</th>
+                                                    <th>Tenor</th>
                                                     <th>Jatuh Tempo</th>
                                                     <th>Jumlah Kredit</th>
                                                     <th>Status</th>
@@ -204,6 +205,7 @@
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $kredit->nama_kredit }}</td>
                                                         <td>{{ $kredit->awal_kredit }}</td>
+                                                        <td>{{ $kredit->tenor }}</td>
                                                         <td>{{ $kredit->akhir_kredit }}</td>
                                                         <td>{{ number_format($kredit->jumlah) }}</td>
                                                         <td>{{ $kredit->status }}</td>
