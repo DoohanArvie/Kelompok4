@@ -9,24 +9,34 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+<<<<<<< HEAD
     public function up()
+=======
+    public function up(): void
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     {
-        Schema::create('kredits', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_user');
+        Schema::create('tbl_kredits', function (Blueprint $table) {
+            $table->id('id_kredit');
+            $table->integer('id_user');
             $table->string('nama_kredit');
             $table->date('awal_kredit');
+<<<<<<< HEAD
             $table->integer('tenor');
             $table->date('akhir_kredit');
             $table->decimal('jumlah', 15, 2); // Use decimal for currency values
+=======
+            $table->date('akhir_kredit');
+            $table->bigInteger('jumlah');
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
             $table->string('status');
             $table->timestamps();
-
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     /**
      * Reverse the migrations.
      */

@@ -29,11 +29,20 @@ class KaryawanController extends Controller
         $validatedData = validator($request->all(), [
             'id_user'=> 'required|integer',
             'nama' => 'required|string|max:255',
+<<<<<<< HEAD
+            'npwp' => 'nullable|string|max:255',
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
             'posisi' => 'required|string|max:255',
             'gaji' => 'required|integer',
             'alamat' => 'required|string|max:255',
             'umur' => 'required|integer',
             'kontak' => 'required|string|max:255',
+<<<<<<< HEAD
+            'bpjs' => 'required|string|max:255',
+            'tgl_gajian' => 'required|date',
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
         ])->validate();
 
         $karyawan = new Karyawan($validatedData);
@@ -69,11 +78,20 @@ class KaryawanController extends Controller
         $validatedData = validator($request->all(), [
             'id_user'=> 'required|integer',
             'nama' => 'required|string|max:255',
+<<<<<<< HEAD
+            'npwp' => 'nullable|string|max:255',
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
             'posisi' => 'required|string|max:255',
             'gaji' => 'required|integer',
             'alamat' => 'required|string|max:255',
             'umur' => 'required|integer',
             'kontak' => 'required|string|max:255',
+<<<<<<< HEAD
+            'bpjs' => 'required|string|max:255',
+            'tgl_gajian' => 'required|date'
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
         ])->validate();
 
         $karyawan = Karyawan::findOrFail($id);
@@ -83,11 +101,21 @@ class KaryawanController extends Controller
         $karyawan->update([
             'id_user'=> $request->id_user,
             'nama' => $request->nama,
+<<<<<<< HEAD
+            'npwp' => $request->npwp,
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
             'posisi' => $request->posisi,
             'gaji' => $request->gaji,
             'alamat' => $request->alamat,
             'umur' => $request->umur,
             'kontak' => $request->kontak,
+<<<<<<< HEAD
+            'bpjs' => $request->bpjs,
+            'tgl_gajian' => $request->tgl_gajian,
+
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
         ]);
         return redirect(route('daftarKaryawan'))->with('success', 'Data Berhasil DiUpdate');
     }

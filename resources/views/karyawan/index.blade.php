@@ -9,7 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{ asset('assets/img/uang.png') }}">
+<<<<<<< HEAD
+    <title>Staff</title>
+=======
     <title>Karyawan</title>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -148,7 +152,11 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
+<<<<<<< HEAD
+                            <h1 class="m-0">Staff</h1>
+=======
                             <h1 class="m-0">Karyawan</h1>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                         </div><!-- /.col -->
                         {{-- <div class="col-sm-6 ">
                             <a href="{{ route('daftarPemasukan') }}"
@@ -166,6 +174,15 @@
                     <div class="col-lg">
                         <!-- Main content -->
                         <div class="content">
+<<<<<<< HEAD
+                            <div class="container-fluid p-1 mt-5">
+                                <div class="card">
+                                    <div class="card-header text-right">
+                                        <a href="{{ route('createKaryawan') }}" class="btn btn-success"
+                                            role="button">Tambah staff</a>
+                                    </div>
+                                    <div class="card-body table-responsive">
+=======
                             <div class="container mt-5">
                                 <div class="card">
                                     <div class="card-header text-right">
@@ -173,16 +190,26 @@
                                             role="button">Tambah Karyawan</a>
                                     </div>
                                     <div class="card-body">
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                         <table class="table table-hover table-bordered text-center" id="data-table">
                                             <thead>
                                                 <tr>
                                                     <th>No.</th>
                                                     <th>Nama</th>
+<<<<<<< HEAD
+                                                    <th>NPWP</th>
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                                     <th>Posisi</th>
                                                     <th>Gaji</th>
                                                     <th>Umur</th>
                                                     <th>Kontak</th>
+<<<<<<< HEAD
+                                                    <th>Bpjs</th>
+                                                    <th>Domisili</th>
+=======
                                                     <th>Alamat</th>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -191,10 +218,19 @@
                                                     <tr>
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $karyawan->nama }}</td>
+<<<<<<< HEAD
+                                                        <td>{{ $karyawan->npwp }}</td>
+                                                        <td>{{ $karyawan->posisi }}</td>
+                                                        <td>Rp. {{ number_format($karyawan->gaji) }}</td>
+                                                        <td>{{ number_format($karyawan->umur) }}</td>
+                                                        <td>{{ $karyawan->kontak }}</td>
+                                                        <td>{{ $karyawan->bpjs }}</td>
+=======
                                                         <td>{{ $karyawan->posisi }}</td>
                                                         <td>{{ number_format($karyawan->gaji) }}</td>
                                                         <td>{{ number_format($karyawan->umur) }}</td>
                                                         <td>{{ $karyawan->kontak }}</td>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                                         <td>{{ $karyawan->alamat }}</td>
                                                         <td>
                                                             <a href="{{ route('editKaryawan', ['id' => $karyawan->id_karyawan]) }}"

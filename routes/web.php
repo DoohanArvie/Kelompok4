@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+<<<<<<< HEAD
 use App\Http\Controllers\LaporanKeuanganController;
+=======
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,12 +82,37 @@ Route::middleware('auth')->group(function () {
     Route::get('/kredit/create', [App\Http\Controllers\KreditController::class, 'create'])->name('createKredit');
     Route::post('/kredit/create', [App\Http\Controllers\KreditController::class, 'store'])->name('storeKredit');
     Route::get('/kredit/{id}/edit', [App\Http\Controllers\KreditController::class, 'edit'])->name('editKredit');
+<<<<<<< HEAD
     Route::put('/kredit/{id}/edit', [App\Http\Controllers\KreditController::class, 'update'])->name('updateKredit');
     Route::get('/kredit/{id}/delete', [App\Http\Controllers\KreditController::class, 'destroy'])->name('deleteKredit');
-    
-    Route::get('/download-laporan', [LaporanKeuanganController::class, 'downloadLaporan'])->name('download.laporan');
+
+    //  tagihan
+     Route::get('/tagihan', [App\Http\Controllers\TagihanBController::class, 'index'])->name('daftarTagihan');
+     Route::get('/tagihan/create', [App\Http\Controllers\TagihanBController::class, 'create'])->name('createTagihan');
+     Route::post('/tagihan/create', [App\Http\Controllers\TagihanBController::class, 'store'])->name('storeTagihan');
+     Route::get('/tagihan/{id}/edit', [App\Http\Controllers\TagihanBController::class, 'edit'])->name('editTagihan');
+     Route::post('/tagihan/{id}/edit', [App\Http\Controllers\TagihanBController::class, 'update'])->name('updateTagihan');
+     Route::get('/tagihan/{id}/delete', [App\Http\Controllers\TagihanBController::class, 'destroy'])->name('deleteTagihan');
+
+
+     Route::get('/download-laporan', [LaporanKeuanganController::class, 'Laporan'])->name('downloadLaporan');
+
 
  });
+=======
+    Route::post('/kredit/{id}/edit', [App\Http\Controllers\KreditController::class, 'update'])->name('updateKredit');
+    Route::get('/kredit/{id}/delete', [App\Http\Controllers\KreditController::class, 'destroy'])->name('deleteKredit');
+
+    //tagihan
+    Route::get('/tagihan', [App\Http\Controllers\TagihanBController::class, 'index'])->name('daftarTagihan');
+    Route::get('/tagihan/create', [App\Http\Controllers\TagihanBController::class, 'create'])->name('createTagihan');
+    Route::post('/tagihan/create', [App\Http\Controllers\TagihanBController::class, 'store'])->name('storeTagihan');
+    Route::get('/tagihan/{id}/edit', [App\Http\Controllers\TagihanBController::class, 'edit'])->name('editTagihan');
+    Route::post('/tagihan/{id}/edit', [App\Http\Controllers\TagihanBController::class, 'update'])->name('updateTagihan');
+    Route::get('/tagihan/{id}/delete', [App\Http\Controllers\TagihanBController::class, 'destroy'])->name('deleteTagihan');
+
+});
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 
 
 

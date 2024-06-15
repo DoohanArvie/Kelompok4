@@ -21,7 +21,78 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+<<<<<<< HEAD
+    <style>
+        /* Add your custom styles here */
+        .card {
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
 
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background-color: #f8f9fc;
+            border-bottom: 1px solid #e3e6f0;
+        }
+
+        .card-header h6 {
+            font-weight: bold;
+        }
+
+        .chart-area,
+        .chart-pie {
+            position: relative;
+        }
+
+        .fa-calendar,
+        .fa-dollar-sign,
+        .fa-wallet,
+        .fa-user-group {
+            color: #d1d3e2;
+        }
+
+        .btn-primary {
+            background-color: #4e73df;
+            border-color: #4e73df;
+        }
+
+        .btn-primary:hover {
+            background-color: #2e59d9;
+            border-color: #2653d4;
+        }
+
+        .small i {
+            font-size: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content-wrapper,
+        .card,
+        .navbar {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .sticky-footer {
+            border-top: 3px solid #4e73df;
+            background-color: #ffffff;
+        }
+    </style>
+=======
+
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 </head>
 
 <body id="page-top">
@@ -32,7 +103,11 @@
     <div id="content">
 
         <!-- Topbar -->
+<<<<<<< HEAD
+        <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
+=======
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -40,7 +115,10 @@
             </button>
 
             <!-- Topbar Search -->
+<<<<<<< HEAD
+=======
             <h1> Selamat Datang, {{ ucwords(Auth::user()->name) }}</h1>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 
             @include('layouts.profile')
 
@@ -53,14 +131,22 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                <a href="{{ route('download.laporan') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+<<<<<<< HEAD
+                <a href="{{ route('downloadLaporan') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+=======
+                <a href="export-semua.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                     <i class="fa-solid fa-download fa-sm text-white-50"></i> Download Laporan</a>
-                </div>
+            </div>
 
             <!-- Content Row -->
             <div class="row">
 
+<<<<<<< HEAD
+                <!-- Earnings (Daily) Card Example -->
+=======
                 <!-- Earnings (Monthly) Card Example -->
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-success shadow h-100 py-2">
                         <div class="card-body">
@@ -75,11 +161,21 @@
                                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                 </div>
                             </div>
-                        </div> &nbsp Mingguan : Rp.{{ number_format($pemasukanMingguIni) }}
+<<<<<<< HEAD
+                            <div class="text-xs font-weight-bold text-success mt-3">Bulanan:
+                                Rp.{{ number_format($pemasukanMingguIni) }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earnings (Daily) Card Example -->
+=======
+                        </div> &nbsp Bulanan : Rp.{{ number_format($pemasukanMingguIni) }}
                     </div>
                 </div>
 
                 <!-- Earnings (Monthly) Card Example -->
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-danger shadow h-100 py-2">
                         <div class="card-body">
@@ -88,18 +184,28 @@
                                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Pengeluaran
                                         (Hari Ini)</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                        Rp.{{ number_format($pengeluaranKredit) }}</div>
+                                        Rp.{{ number_format($pengeluaranTagihan) }}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                                 </div>
                             </div>
-                        </div> &nbsp Mingguan : Rp.
-                        {{ number_format($pengeluaranKreditMingguIni) }}
+<<<<<<< HEAD
+                            <div class="text-xs font-weight-bold text-danger mt-3">Bulanan:
+                                Rp.{{ number_format($pengeluaranTagihanMingguIni) }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earnings (Remaining) Card Example -->
+=======
+                        </div> &nbsp Bulanan : Rp.
+                        {{ number_format($pengeluaranTagihanMingguIni) }}
                     </div>
                 </div>
 
                 <!-- Earnings (Monthly) Card Example -->
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-info shadow h-100 py-2">
                         <div class="card-body">
@@ -117,12 +223,19 @@
                                     <i class="fa-solid fa-wallet fa-2x text-gray-300"></i>
                                 </div>
                             </div>
+<<<<<<< HEAD
+=======
 
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                         </div>
                     </div>
                 </div>
 
+<<<<<<< HEAD
+                <!-- Employees Card Example -->
+=======
                 <!-- Pending Requests Card Example -->
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                 <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
@@ -130,7 +243,11 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Karyawan
                                     </div>
+<<<<<<< HEAD
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $karyawan }}</div>
+=======
                                     <div class="h5 mb-0 font-weight-bold text-gray-800 ">{{ $karyawan }}</div>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa-solid fa-user-group fa-2x text-gray-300"></i>
@@ -139,14 +256,62 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+
+            </div>
+
+            <!-- Content Row -->
+=======
             </div>
 
             <!-- Content Row -->
 
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
             <div class="row">
 
                 <!-- Area Chart -->
                 <div class="col-xl-8 col-lg-7">
+<<<<<<< HEAD
+                    <div class="card shadow mb-4 pb-3">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Pendapatan Bulan Ini</h6>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Sumber</h3>
+                                    <ul class="list-group list-group-flush">
+                                        @foreach ($sumbers->take(6)  as $sumber)
+                                            <li class="list-group-item">
+                                                {{ $loop->index + 1 }}. {{ $sumber->nama_sumber }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Jumlah</h3>
+                                    <ul class="list-group list-group-flush">
+                                        @foreach ($sumbers->take(6)  as $sumber)
+                                            <li class="list-group-item">
+                                                <span class="float-right">
+                                                    Rp.{{ number_format($pemasukanPerSumber[$sumber->id_sumber]->total_jumlah ?? 0) }}
+                                                </span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                {{-- <div class="col-md-6">
+                                    <ul class="list-group list-group-flush">
+                                        <h3>Jumlah</h3>
+                                        @foreach ($totalsumber as $totalsumber)
+                                        <li class="list-group-item">{{ $loop->index + 1 }}. {{ $sumber->nama_sumber }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div> --}}
+
+=======
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -170,6 +335,7 @@
                         <div class="card-body">
                             <div class="chart-area">
                                 <canvas id="myAreaChart1"></canvas>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                             </div>
                         </div>
                     </div>
@@ -177,6 +343,12 @@
 
                 <!-- Pie Chart -->
                 <div class="col-xl-4 col-lg-5">
+<<<<<<< HEAD
+                    <div class="card shadow mb-4 pb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Perbandingan</h6>
+=======
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -195,6 +367,7 @@
                                     <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
                             </div>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
@@ -224,9 +397,15 @@
     <!-- End of Main Content -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white" style="border-top: 3px solid #6777ef;background-color: #ffffff;">
+<<<<<<< HEAD
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+=======
+    <footer class="sticky-footer bg-white" style="border-top: 3px solid #6777ef;background-color: #ffffff;>
         <div class="container my-auto">
             <div class="copyright text-center my-auto" >
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                 <span>Copyright &copy; Kelompok XX 2023</span>
             </div>
         </div>
@@ -313,6 +492,8 @@
         });
     </script>
     {{-- dougnut chart --}}
+<<<<<<< HEAD
+=======
 
     {{-- area chart --}}
     <script>
@@ -362,7 +543,7 @@
                     pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                     pointHitRadius: 10,
                     pointBorderWidth: 2,
-                    data: "{{ json_encode($pemasukanMingguIni) }}",
+                    data: @json($pemasukanMingguIni),
                 }],
             },
             options: {
@@ -433,6 +614,7 @@
         });
     </script>
     {{-- area chart --}}
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 </body>
 
 </html>

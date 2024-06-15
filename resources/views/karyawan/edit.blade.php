@@ -10,11 +10,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{ asset('assets/img/uang.png') }}">
+<<<<<<< HEAD
+    <title>Edit Staff</title>
+=======
     <title>Edit Karyawan</title>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -38,59 +44,123 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
+<<<<<<< HEAD
+                            <h1 class="m-0">Edit Staff</h1>
+=======
                             <h1 class="m-0">Edit Karyawan</h1>
-                        </div>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
+                        </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
+<<<<<<< HEAD
+                                <li class="breadcrumb-item active">Edit Staff</li>
+=======
                                 <li class="breadcrumb-item active">Edit Karyawan</li>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                             </ol>
-                        </div>
-                    </div>
-                </div>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
+            <!-- /.content-header -->
 
             <!-- Main content -->
             <div class="content">
                 <div class="container mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('updateKaryawan', ['id' => $karyawan->id_karyawan]) }}" method="post">
+                            <form action="{{ route('updateKaryawan', ['id' => $karyawan->id_karyawan]) }}"
+                                method="post">
                                 @csrf
                                 <input type="hidden" name="id_user" id="id_user" value="{{ Auth::user()->id_user }}">
                                 <div class="form-group">
-                                    <label for="nama">Nama Karyawan</label>
-                                    <input type="text" name="nama" id="nama" class="form-control" required='required' placeholder="Masukkan Nama Karyawan" value="{{ old('nama', $karyawan->nama) }}">
+<<<<<<< HEAD
+                                    <label for="nama">Nama Staff</label>
+                                    <input type="text" name="nama" id="nama" class="form-control"
+                                        required='required' placeholder="Masukkan Nama Staff"
+                                        value="{{ old('nama', $karyawan->nama) }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="npwp">NPWP Staff</label>
+                                    <input type="text" name="npwp" id="npwp" class="form-control"
+                                        placeholder="Masukkan NPWP Staff" value="{{ old('npwp', $karyawan->npwp) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="posisi">Posisi</label>
-                                    <input type="text" name="posisi" id="posisi" class="form-control" required='required' placeholder="Masukkan Posisi Karyawan" value="{{ old('posisi', $karyawan->posisi) }}">
+                                    <input type="text" name="posisi" id="posisi" class="form-control"
+                                        required='required' placeholder="Masukkan Posisi Staff"
+=======
+                                    <label for="nama">Nama Karyawan</label>
+                                    <input type="text" name="nama" id="nama" class="form-control"
+                                        required='required' placeholder="Masukkan Nama Karyawan"
+                                        value="{{ old('nama', $karyawan->nama) }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="posisi">Posisi</label>
+                                    <input type="text" name="posisi" id="posisi" class="form-control"
+                                        required='required' placeholder="Masukkan Posisi Karyawan"
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
+                                        value="{{ old('posisi', $karyawan->posisi) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="gaji">Gaji</label>
-                                    <select name="gaji" id="gaji" class="form-control" required='required'>
-                                        <option value="" disabled>Pilih Gaji Karyawan</option>
-                                        <option value="3000000" {{ old('gaji', $karyawan->gaji) == 3000000 ? 'selected' : '' }}>Rp 3.000.000</option>
-                                        <option value="4000000" {{ old('gaji', $karyawan->gaji) == 4000000 ? 'selected' : '' }}>Rp 4.000.000</option>
-                                        <option value="5000000" {{ old('gaji', $karyawan->gaji) == 5000000 ? 'selected' : '' }}>Rp 5.000.000</option>
-                                        <option value="6000000" {{ old('gaji', $karyawan->gaji) == 6000000 ? 'selected' : '' }}>Rp 6.000.000</option>
-                                        <option value="7000000" {{ old('gaji', $karyawan->gaji) == 7000000 ? 'selected' : '' }}>Rp 7.000.000</option>
-                                    </select>
+                                    <input type="number" name="gaji" id="gaji" class="form-control"
+<<<<<<< HEAD
+                                        required='required' placeholder="Masukkan Gaji Staff"
+=======
+                                        required='required' placeholder="Masukkan Gaji Karyawan"
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
+                                        value="{{ old('gaji', $karyawan->gaji) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="umur">Umur</label>
-                                    <input type="number" name="umur" id="umur" class="form-control" required='required' placeholder="Masukkan Umur Karyawan" value="{{ old('umur', $karyawan->umur) }}">
+                                    <input type="number" name="umur" id="umur" class="form-control"
+<<<<<<< HEAD
+                                        required='required' placeholder="Masukkan Umur Staff"
+=======
+                                        required='required' placeholder="Masukkan Umur Karyawan"
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
+                                        value="{{ old('umur', $karyawan->umur) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="kontak">Kontak</label>
-                                    <input type="number" name="kontak" id="kontak" class="form-control" required='required' placeholder="Masukkan Kontak Karyawan" value="{{ old('kontak', $karyawan->kontak) }}">
+                                    <input type="number" name="kontak" id="kontak" class="form-control"
+<<<<<<< HEAD
+                                        required='required' placeholder="Masukkan Kontak Staff"
+                                        value="{{ old('kontak', $karyawan->kontak) }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bpjs">Bpjs</label>
+                                    <select class="form-control" name="bpjs" id="bpjs" required="required"
+                                        value="{{ old('bpjs', $karyawan->bpjs) }}">
+                                        <option value="memiliki">Memiliki</option>
+                                        <option value="tidak-memiliki">Tidak memiliki</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tgl_gajian">Tanggal Gajian</label>
+                                    <input type="date" name="tgl_gajian" id="tgl_gajian" class="form-control"
+                                        required='required' placeholder="Masukkan Tanggal Gajian"
+                                        value="{{ old('tgl_gajian', $karyawan->tgl_gajian) }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <textarea name="alamat" id="alamat" class="form-control" required='required' placeholder="Masukkan Alamat Karyawan" rows="3">{{ old('alamat', $karyawan->alamat) }}</textarea>
+                                    <textarea name="alamat" id="alamat" class="form-control" required='required'
+                                        placeholder="Masukkan Alamat Staff" rows="3">{{ old('alamat', $karyawan->alamat) }}</textarea>
+=======
+                                        required='required' placeholder="Masukkan Kontak Karyawan"
+                                        value="{{ old('kontak', $karyawan->kontak) }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="alamat">Alamat</label>
+                                    <textarea name="alamat" id="alamat" class="form-control" required='required' placeholder="Masukkan Alamat Karyawan"
+                                        rows="3">{{ old('alamat', $karyawan->alamat) }}</textarea>
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 </div>
                                 <div class="text-right">
-                                    <a href="{{ route('daftarKaryawan') }}" class="btn btn-outline-secondary mr-2" role="button">Batal</a>
+                                    <a href="{{ route('daftarKaryawan') }}" class="btn btn-outline-secondary mr-2"
+                                        role="button">Batal</a>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
@@ -101,6 +171,9 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
+
+
 
     </div>
     <!-- End of Main Content -->

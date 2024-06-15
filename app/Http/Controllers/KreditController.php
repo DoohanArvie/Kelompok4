@@ -40,6 +40,7 @@ class KreditController extends Controller
 
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $request->validate([
             'nama_kredit' => 'required|string|max:255',
             'awal_kredit' => 'required|date',
@@ -48,7 +49,7 @@ class KreditController extends Controller
             'jumlah' => 'required|numeric',
             'status' => 'required|string',
         ]);
-    
+
         $kredit = new Kredit();
         $kredit->id_user = $request->id_user;
         $kredit->nama_kredit = $request->nama_kredit;
@@ -58,11 +59,28 @@ class KreditController extends Controller
         $kredit->jumlah = $request->jumlah;
         $kredit->status = $request->status;
         $kredit->save();
-    
+
         return redirect()->route('daftarKredit')->with('success', 'Kredit berhasil ditambahkan.');
     }
-    
 
+
+=======
+        $validatedData = validator($request->all(), [
+            'id_user' => 'required|integer',
+            'nama_kredit' => 'required|string|max:255',
+            'awal_kredit' => 'required|date',
+            'akhir_kredit' => 'required|date',
+            'jumlah' => 'required|integer',
+            'status' => 'required|string|max:255',
+        ])->validate();
+
+        $kredit = new Kredit($validatedData);
+        $kredit->save();
+
+        return redirect(route('daftarKredit'))->with('success', 'Data Berhasil Di Simpan');
+    }
+
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     public function edit(string $id)
     {
         $kredit = Kredit::findOrFail($id);
@@ -72,6 +90,7 @@ class KreditController extends Controller
     }
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         $kredit = Kredit::find($id);
         // Validasi dan update data
         $kredit->nama_kredit = $request->nama_kredit;
@@ -81,12 +100,39 @@ class KreditController extends Controller
         $kredit->jumlah = $request->jumlah;
         $kredit->status = $request->status;
         $kredit->save();
-        
-        return redirect()->route('daftarKredit');
+
+        return redirect()->route('daftarKredit')->with('success', 'Kredit berhasil di perbarui.');
     }
 
 
 
+=======
+        //
+        $validatedData = validator($request->all(), [
+            'id_user' => 'required|integer',
+            'nama_kredit' => 'required|string|max:255',
+            'awal_kredit' => 'required|date',
+            'akhir_kredit' => 'required|date',
+            'jumlah' => 'required|integer',
+            'status' => 'required|string|max:255',
+        ])->validate();
+
+        $kredit = Kredit::findOrFail($id);
+        // Update the record with the validated data
+        $kredit->update($validatedData);
+
+        $kredit->update([
+            'id_user' => $request->id_user,
+            'nama_kredit' => $request->nama_kredit,
+            'awal_kredit' => $request->awal_kredit,
+            'akhir_kredit' => $request->akhir_kredit,
+            'jumlah' => $request->jumlah,
+            'status' => $request->status,
+        ]);
+        return redirect(route('daftarKredit'))->with('success', 'Data Berhasil DiUpdate');
+    }
+
+>>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     public function destroy(string $id)
     {
         //
