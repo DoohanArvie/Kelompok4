@@ -16,11 +16,14 @@ return new class extends Migration
             $table->id('id_karyawan');
             $table->integer('id_user');
             $table->string('nama');
+            $table->string('npwp')->nullable();
             $table->string('posisi');
             $table->bigInteger('gaji');
             $table->integer('umur');
             $table->string('alamat');
             $table->string('kontak');
+            $table->enum('bpjs', ['memiliki', 'tidak-memiliki']);
+            $table->date('tgl_gajian');
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kredit;
+use App\Models\Sumber;
+use App\Models\TagihanB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +22,10 @@ class HomeController extends Controller
             $usertype = Auth()->user()->userType;
             $userId = Auth::id();
 
-            // Mendapatkan tanggal awal dan akhir minggu ini
-            $startDate = Carbon::now()->startOfWeek()->format('Y-m-d');
-            $endDate = Carbon::now()->endOfWeek()->format('Y-m-d');
+            // Mendapatkan tanggal awal dan akhir bulan ini
+            $startDate = Carbon::now()->startOfMonth()->format('Y-m-d');
+            $endDate = Carbon::now()->endOfMonth()->format('Y-m-d');
+
             ////////////////////////  Pemasukan
             // Mengambil data pemasukan berdasarkan id_user
             $pemasukan = Pemasukan::where('id_user', $userId)->get();
@@ -54,25 +57,53 @@ class HomeController extends Controller
                 ->where('status', 'lunas')
                 ->whereBetween('akhir_kredit', [$startDate, $endDate])->sum('jumlah');
 
-                $totalPengeluaranKredit = Kredit::where('id_user', $userId)
+            $totalPengeluaranKredit = Kredit::where('id_user', $userId)
                 ->where('status', 'lunas')
                 ->sum('jumlah');
 
+            // Tagihan
+            $tagihan = TagihanB::where('id_user', $userId)->get();
 
-            $pengeluaranKredit = $kreditHariIni + $pengeluaranHariIni;
-            $pengeluaranKreditMingguIni = $kreditMingguIni + $pengeluaranMingguIni;
+            $tagihanHariIni = TagihanB::where('id_user', $userId)
+                ->where('status', 'Sudah Bayar')
+                ->whereDate('akhir_tagihan', Carbon::today())->sum('jumlah');
 
-            // Hitung sisa uang
-            $sisaUang = $totalPemasukan - $totalPengeluaran - $totalPengeluaranKredit;
+            $tagihanMingguIni = TagihanB::where('id_user', $userId)
+                ->where('status', 'Sudah Bayar')
+                ->whereBetween('akhir_tagihan', [$startDate, $endDate])->sum('jumlah');
 
-            // jumlah karyawan
+            $totalPengeluaranTagihan = TagihanB::where('id_user', $userId)
+                ->where('status', 'Sudah Bayar')
+                ->sum('jumlah');
+
+            // Karyawan
+            // Mendapatkan tanggal 30 hari yang lalu dari hari ini
+            $startgaji = Carbon::now()->subDays(30);
             $karyawan = Karyawan::where('id_user', $userId)->count();
 
+            // Menghitung total gaji dalam 30 hari terakhir
+            $totalGaji30Hari = Karyawan::where('id_user', $userId)
+                ->whereBetween('tgl_gajian', [$startgaji, Carbon::now()])
+                ->sum('gaji');
+
+
+            $pengeluaranTagihan = $tagihanHariIni + $kreditHariIni + $pengeluaranHariIni;
+            $pengeluaranTagihanMingguIni = $tagihanMingguIni + $kreditMingguIni + $pengeluaranMingguIni;
+
+            // Hitung sisa uang
+            $sisaUang = $totalPemasukan - $totalPengeluaran - $totalPengeluaranKredit - $totalPengeluaranTagihan;
+
+            $sumbers = Sumber::where('tipe_sumber', 'pemasukan')->get();
+            $pemasukanPerSumber = Pemasukan::where('id_user', $userId)
+                ->select('id_sumber', Sumber::raw('SUM(jumlah) as total_jumlah'))
+                ->groupBy('id_sumber')
+                ->get()
+                ->keyBy('id_sumber');
 
             if ($usertype == 'user') {
-                return view('dashboard.index', compact('totalPemasukan', 'pemasukanHariIni', 'pemasukanMingguIni', 'totalPengeluaran', 'pengeluaranHariIni', 'pengeluaranMingguIni', 'sisaUang', 'karyawan', 'kredit', 'kreditHariIni', 'pengeluaranKredit', 'pengeluaranKreditMingguIni', 'pengeluaranKredit'));
+                return view('dashboard.index', compact('totalPemasukan', 'pemasukanHariIni', 'pemasukanMingguIni', 'totalPengeluaran', 'pengeluaranHariIni', 'pengeluaranMingguIni', 'sisaUang', 'karyawan', 'kredit', 'kreditHariIni', 'tagihan', 'tagihanHariIni', 'tagihanMingguIni', 'totalPengeluaranTagihan', 'pengeluaranTagihan', 'pengeluaranTagihanMingguIni', 'totalGaji30Hari', 'sumbers', 'pemasukanPerSumber'));
             } else if ($usertype == 'admin') {
-                return view('admin.index', compact('totalPemasukan', 'pemasukanHariIni', 'pemasukanMingguIni', 'totalPengeluaran', 'pengeluaranHariIni', 'pengeluaranMingguIni', 'sisaUang', 'karyawan', 'kredit', 'kreditHariIni', 'pengeluaranKredit', 'pengeluaranKreditMingguIni', 'pengeluaranKredit'));
+                return view('admin.index', compact('totalPemasukan', 'pemasukanHariIni', 'pemasukanMingguIni', 'totalPengeluaran', 'pengeluaranHariIni', 'pengeluaranMingguIni', 'sisaUang', 'karyawan', 'kredit', 'kreditHariIni', 'tagihan', 'tagihanHariIni', 'tagihanMingguIni', 'totalPengeluaranTagihan', 'pengeluaranTagihan', 'pengeluaranTagihanMingguIni', 'totalGaji30Hari'));
             } else {
                 return redirect()->back();
             }

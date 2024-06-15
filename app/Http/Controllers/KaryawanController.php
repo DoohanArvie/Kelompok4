@@ -29,11 +29,14 @@ class KaryawanController extends Controller
         $validatedData = validator($request->all(), [
             'id_user'=> 'required|integer',
             'nama' => 'required|string|max:255',
+            'npwp' => 'nullable|string|max:255',
             'posisi' => 'required|string|max:255',
             'gaji' => 'required|integer',
             'alamat' => 'required|string|max:255',
             'umur' => 'required|integer',
             'kontak' => 'required|string|max:255',
+            'bpjs' => 'required|string|max:255',
+            'tgl_gajian' => 'required|date',
         ])->validate();
 
         $karyawan = new Karyawan($validatedData);
@@ -69,11 +72,14 @@ class KaryawanController extends Controller
         $validatedData = validator($request->all(), [
             'id_user'=> 'required|integer',
             'nama' => 'required|string|max:255',
+            'npwp' => 'nullable|string|max:255',
             'posisi' => 'required|string|max:255',
             'gaji' => 'required|integer',
             'alamat' => 'required|string|max:255',
             'umur' => 'required|integer',
             'kontak' => 'required|string|max:255',
+            'bpjs' => 'required|string|max:255',
+            'tgl_gajian' => 'required|date'
         ])->validate();
 
         $karyawan = Karyawan::findOrFail($id);
@@ -83,11 +89,15 @@ class KaryawanController extends Controller
         $karyawan->update([
             'id_user'=> $request->id_user,
             'nama' => $request->nama,
+            'npwp' => $request->npwp,
             'posisi' => $request->posisi,
             'gaji' => $request->gaji,
             'alamat' => $request->alamat,
             'umur' => $request->umur,
             'kontak' => $request->kontak,
+            'bpjs' => $request->bpjs,
+            'tgl_gajian' => $request->tgl_gajian,
+
         ]);
         return redirect(route('daftarKaryawan'))->with('success', 'Data Berhasil DiUpdate');
     }

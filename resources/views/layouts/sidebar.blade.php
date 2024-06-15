@@ -54,14 +54,14 @@
 
           <!-- Heading -->
           <div class="sidebar-heading">
-              Karyawan
+              Staff
           </div>
 
           <!-- Nav Item - Pages Collapse Menu -->
           <li class="nav-item">
               <a class="nav-link collapsed" href="{{ route('daftarKaryawan') }}">
                   <i class="fa-solid fa-user-group"></i>
-                  <span>Karyawan</span>
+                  <span>Staff</span>
               </a>
           </li>
 
@@ -80,7 +80,7 @@
                   <span>Kredit</span></a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('daftarKredit') }}">
+              <a class="nav-link" href="{{ route('daftarTagihan') }}">
                   <i class="fa-solid fa-chart-area"></i>
                   <span>Tagihan Bulanan</span></a>
           </li>

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kredits', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tbl_kredits', function (Blueprint $table) {
+            $table->id('id_kredit');
             $table->unsignedBigInteger('id_user');
             $table->string('nama_kredit');
             $table->date('awal_kredit');
@@ -21,8 +21,6 @@ return new class extends Migration
             $table->decimal('jumlah', 15, 2); // Use decimal for currency values
             $table->string('status');
             $table->timestamps();
-
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

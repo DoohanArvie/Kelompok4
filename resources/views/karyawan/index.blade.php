@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{ asset('assets/img/uang.png') }}">
-    <title>Karyawan</title>
+    <title>Staff</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -148,7 +148,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Karyawan</h1>
+                            <h1 class="m-0">Staff</h1>
                         </div><!-- /.col -->
                         {{-- <div class="col-sm-6 ">
                             <a href="{{ route('daftarPemasukan') }}"
@@ -166,23 +166,25 @@
                     <div class="col-lg">
                         <!-- Main content -->
                         <div class="content">
-                            <div class="container mt-5">
+                            <div class="container-fluid p-1 mt-5">
                                 <div class="card">
                                     <div class="card-header text-right">
                                         <a href="{{ route('createKaryawan') }}" class="btn btn-success"
-                                            role="button">Tambah Karyawan</a>
+                                            role="button">Tambah staff</a>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body table-responsive">
                                         <table class="table table-hover table-bordered text-center" id="data-table">
                                             <thead>
                                                 <tr>
                                                     <th>No.</th>
                                                     <th>Nama</th>
+                                                    <th>NPWP</th>
                                                     <th>Posisi</th>
                                                     <th>Gaji</th>
                                                     <th>Umur</th>
                                                     <th>Kontak</th>
-                                                    <th>Alamat</th>
+                                                    <th>Bpjs</th>
+                                                    <th>Domisili</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -191,10 +193,12 @@
                                                     <tr>
                                                         <td>{{ $loop->index + 1 }}</td>
                                                         <td>{{ $karyawan->nama }}</td>
+                                                        <td>{{ $karyawan->npwp }}</td>
                                                         <td>{{ $karyawan->posisi }}</td>
-                                                        <td>{{ number_format($karyawan->gaji) }}</td>
+                                                        <td>Rp. {{ number_format($karyawan->gaji) }}</td>
                                                         <td>{{ number_format($karyawan->umur) }}</td>
                                                         <td>{{ $karyawan->kontak }}</td>
+                                                        <td>{{ $karyawan->bpjs }}</td>
                                                         <td>{{ $karyawan->alamat }}</td>
                                                         <td>
                                                             <a href="{{ route('editKaryawan', ['id' => $karyawan->id_karyawan]) }}"

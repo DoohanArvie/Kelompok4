@@ -14,21 +14,18 @@ class Karyawan extends Model
     protected $fillable = [
         "id_user",
         "nama",
+        "npwp",
         "posisi",
         "gaji",
         "alamat",
         "umur",
         "kontak",
+        "bpjs",
+        "tgl_gajian",
     ];
 
     public function user()
     {
         return $this->belongsTo('App\Models\User', 'id_user');
     }
-
-    public function pengeluarans()
-    {
-        return $this->hasMany('App\Models\Pengeluaran', 'id_user', 'id_user');
-    }
-
 }

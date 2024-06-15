@@ -2,28 +2,60 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kredit;
+use App\Models\Pemasukan;
+use App\Models\Pengeluaran;
+use App\Models\TagihanB;
 use Illuminate\Http\Request;
 use PDF;
-use App\Models\Pemasukan; // Import your model if not already imported
-use App\Models\Pengeluaran; // Import your model if not already imported
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class LaporanKeuanganController extends Controller
 {
-    public function downloadLaporan()
+    public function Laporan(Request $request)
     {
-        // Fetch data needed to render the dashboard
-        $pemasukanHariIni = Pemasukan::whereDate('created_at', today())->sum('amount');
-        $pengeluaranKredit = Pengeluaran::whereDate('created_at', today())->sum('amount');
-        // Fetch other necessary data...
+        $userId = Auth::id();
 
-        // Render the dashboard view
-        $pdf = PDF::loadView('dashboard-pdf', [
-            'pemasukanHariIni' => $pemasukanHariIni,
-            'pengeluaranKredit' => $pengeluaranKredit,
-            // Pass other data to the view as needed...
-        ]);
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
 
-        // Download the PDF file with a specific name
-        return $pdf->download('laporan-keuangan.pdf');
+        $pemasukans = Pemasukan::where('id_user', $userId)
+            ->when($startDate && $endDate, function ($query) use ($startDate, $endDate) {
+                return $query->whereBetween('tgl_pemasukan', [$startDate, $endDate]);
+            })
+            ->get();
+
+        $pengeluarans = Pengeluaran::where('id_user', $userId)
+            ->when($startDate && $endDate, function ($query) use ($startDate, $endDate) {
+                return $query->whereBetween('tgl_pengeluaran', [$startDate, $endDate]);
+            })
+            ->get();
+
+        $totalPengeluaran = $pengeluarans->sum('jumlah');
+        $totalPemasukan = $pemasukans->sum('jumlah');
+
+        $tagihans = TagihanB::where('id_user', $userId)
+            ->where('status', 'Sudah Bayar')
+            ->when($startDate && $endDate, function ($query) use ($startDate, $endDate) {
+                return $query->whereBetween('akhir_tagihan', [$startDate, $endDate]);
+            })
+            ->get();
+
+        $totalTagihan = $tagihans->sum('jumlah');
+
+        $kredits = Kredit::where('id_user', $userId)
+            ->where('status', 'lunas')
+            ->when($startDate && $endDate, function ($query) use ($startDate, $endDate) {
+                return $query->whereBetween('akhir_kredit', [$startDate, $endDate]);
+            })
+            ->get();
+
+        $totalKredit = $kredits->sum('jumlah');
+
+        $sisaUang = $totalPemasukan - $totalPengeluaran - $totalTagihan - $totalKredit;
+
+        return view('pdf.laporan_pdf', compact('pemasukans', 'pengeluarans', 'totalPengeluaran', 'totalPemasukan', 'sisaUang', 'tagihans', 'totalTagihan','kredits','totalKredit', 'startDate', 'endDate'));
     }
 }

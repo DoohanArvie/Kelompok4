@@ -15,8 +15,10 @@ class PemasukanController extends Controller
         $userId = Auth::id(); // Mengambil ID pengguna yang sedang login
         $pemasukans = Pemasukan::where('id_user', $userId)->get(); // Mengambil data pemasukan berdasarkan id_user
         $sumbers = Sumber::where('tipe_sumber', 'pemasukan')->get(); // Mengambil semua data sumber pemasukan dengan tipe 'pemasukan'
-        
-        return view('pemasukan.index', compact('pemasukans', 'sumbers'));
+
+        $totalPemasukan = Pemasukan::where('id_user', $userId)->sum('jumlah');
+
+        return view('pemasukan.index', compact('pemasukans', 'sumbers','totalPemasukan'));
     }
 
     public function create()

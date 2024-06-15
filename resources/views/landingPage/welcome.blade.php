@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>SoftLand Bootstrap Template - Index</title>
+    <title>Marabunta Money</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/landingPage/img/favicon.png')}}" rel="icon">
-    <link href="{{asset('assets/landingPage/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link href="{{ asset('assets/landingPage/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets/landingPage/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -19,15 +19,25 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="{{asset('assets/landingPage/vendor/aos/aos.css')}}" rel="stylesheet">
-    <link href="{{asset("assets/landingPage/vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
-    <link href="{{asset('assets/landingPage/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/landingPage/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/landingPage/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/landingPage/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/landingPage/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/landingPage/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/landingPage/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/landingPage/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="{{asset('assets/landingPage/css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/landingPage/css/style.css') }}" rel="stylesheet">
+    <style>
+        .step {
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
 
+        .step:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
 <body>
@@ -45,11 +55,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="active " href="#">Dashboard</a></li>
-                    <li><a href="">Features</a></li>
-                    <li><a href="">Pricing</a></li>
-                    <li><a href="">Blog</a></li>
-
-                    <li><a href="{{route('login')}}">Login</a></li>
+                    <li><a href="{{ route('login') }}">Login</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -81,17 +87,21 @@
                     <div class="row">
                         <div class="col-lg-8 text-center text-lg-start">
                             <h1 data-aos="fade-right">Website Pencatatan Keuangan</h1>
-                            <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Marabunta Money is a user-friendly online platform designed to help individuals and businesses manage their finances efficiently.
-                            The website offers a range of tools for budgeting, expense tracking, and financial planning. Users can easily record and categorize their income and expenditures, generate detailed
-                 f          inancial reports, and set personal or business financial goals.</p>
+                            <p style="text-align: justify" class="mb-5" data-aos="fade-right" data-aos-delay="100">
+                                Marabunta Money adalah platform online ramah pengguna yang dirancang untuk membantu
+                                individu dan bisnis mengelola keuangan mereka secara efisien. Situs web ini menawarkan
+                                berbagai alat untuk penganggaran, pelacakan pengeluaran, dan perencanaan keuangan.
+                                Pengguna dapat dengan mudah mencatat dan mengkategorikan pendapatan dan pengeluaran
+                                mereka, menghasilkan laporan keuangan terperinci, dan menetapkan tujuan keuangan pribadi
+                                atau bisnis.</p>
                             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a
                                     href="{{ route('register') }}" class="btn btn-outline-white">Get started</a></p>
                         </div>
-                        <div class="col-lg-4 iphone-wrap">
+                        {{-- <div class="col-lg-4 iphone-wrap">
                             <img src="{{asset('assets/landingPage/img/phone_1.png')}}" alt="Image" class="phone-1" data-aos="fade-right">
                             <img src="{{asset('assets/landingPage/img/phone_2.png')}}" alt="Image" class="phone-2" data-aos="fade-right"
                                 data-aos-delay="200">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -106,36 +116,36 @@
             <div class="container">
 
                 <div class="row justify-content-center text-center mb-5">
-                    <div class="col-md-5" data-aos="fade-up">
-                        <h2 class="section-heading">makes it easier to manage finances using Marabunta Money</h2>
+                    <div class="col-md-7 col-sm-5" data-aos="fade-up">
+                        <h2 class="section-heading">Memudahkan Pengelolaan keuangan menggunakan aplikasi Marabunta Money</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="">
                         <div class="feature-1 text-center">
-                        <div class="wrap-icon icon-1">
-                            <i class="bi bi-bank"></i>
-                        </div>
-                        <h3 class="mb-3">Expense and Income Tracking</h3>
-                        <p>Log daily transactions with ease.</p>
+                            <div class="wrap-icon icon-1">
+                                <i class="bi bi-bank"></i>
+                            </div>
+                            <h3 class="mb-3">Pelacakan Pengeluaran dan Pendapatan</h3>
+                            <p>Catat transaksi harian dengan mudah..</p>
                         </div>
                     </div>
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="feature-1 text-center">
-                        <div class="wrap-icon icon-1">
-                            <i class="bi bi-currency-dollar"></i>
-                        </div>
-                        <h3 class="mb-3">Budgeting Tools</h3>
-                        <p>Create and manage budgets to monitor spending.</p>
+                            <div class="wrap-icon icon-1">
+                                <i class="bi bi-currency-dollar"></i>
+                            </div>
+                            <h3 class="mb-3">Alat Penganggaran</h3>
+                            <p>Membuat dan mengelola anggaran untuk memantau pengeluaran..</p>
                         </div>
                     </div>
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="feature-1 text-center">
-                        <div class="wrap-icon icon-1">
-                            <i class="bi bi-bar-chart"></i>
-                        </div>
-                        <h3 class="mb-3">Financial Reports</h3>
-                        <p>Generate comprehensive reports to analyze financial health.</p>
+                            <div class="wrap-icon icon-1">
+                                <i class="bi bi-bar-chart"></i>
+                            </div>
+                            <h3 class="mb-3">Laporan keuangan</h3>
+                            <p>Hasilkan laporan komprehensif untuk menganalisis kesehatan keuangan..</p>
                         </div>
                     </div>
                 </div>
@@ -143,77 +153,38 @@
         </section>
 
         <section class="section">
-
             <div class="container">
-                <div class="row justify-content-center text-center mb-5" data-aos="fade">
-                    <div class="col-md-6 mb-5">
-                        <img src="{{asset('assets/landingPage/img/undraw_svg_1.svg')}}" alt="Image" class="img-fluid">
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="col-md-4">
                         <div class="step">
-                        <span class="number">01</span>
-                        <h3>Sign Up</h3>
-                        <p>Start your journey towards better financial management by clicking the "Sign Up" button. Enter your email, create a secure strong password, and confirm the password to get started.</p>
+                            <span class="number">01</span>
+                            <h3>Daftar</h3>
+                            <p>Mulailah perjalanan Anda menuju pengelolaan keuangan yang lebih baik dengan mengklik
+                                tombol "Daftar". Masukkan email Anda, buat kata sandi kuat yang aman, dan konfirmasikan
+                                kata sandi untuk memulai.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="step">
-                        <span class="number">02</span>
-                        <h3>Create Profile</h3>
-                        <p>If you don't have an account, you will be directed to the registration page. Fill in your personal information such as email address, and secure password. After that, click "Register" to create your new account.</p>
+                            <span class="number">02</span>
+                            <h3>Buat Profile</h3>
+                            <p>Jika Anda belum memiliki akun, Anda akan diarahkan ke halaman pendaftaran. Isi informasi
+                                pribadi Anda seperti alamat email, dan kata sandi yang aman. Setelah itu, klik "Daftar"
+                                untuk membuat akun baru Anda.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="step">
-                        <span class="number">03</span>
-                        <h3>Enjoy the app</h3>
-                        <p>Once registration is complete, you can immediately enjoy all FinanceTrack features. Enjoy an intuitive user experience and tools designed to help you achieve your financial goals.</p>
+                            <span class="number">03</span>
+                            <h3>Nikmati Aplikasinya</h3>
+                            <p>Setelah registrasi selesai, Anda bisa langsung menikmati seluruh fitur FinanceTrack.
+                                Nikmati pengalaman pengguna yang intuitif dan alat yang dirancang untuk membantu Anda
+                                mencapai tujuan keuangan Anda.</p>
                         </div>
                     </div>
-                    </div>
-                </div>
-
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-4 me-auto">
-                        <h2 class="mb-4">Seamlessly Communicate</h2>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur at
-                            reprehenderit optio,
-                            laudantium eius quod, eum maxime molestiae porro omnis. Dolores aspernatur delectus impedit
-                            incidunt
-                            dolore mollitia esse natus beatae.</p>
-                        <p><a href="#" class="btn btn-primary">Download Now</a></p>
-                    </div>
-                    <div class="col-md-6" data-aos="fade-left">
-                        <img src="{{asset('assets/landingPage/img/undraw_svg_2.svg')}}" alt="Image" class="img-fluid">
-                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-4 ms-auto order-2">
-                        <h2 class="mb-4">Gather Feedback</h2>
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur at
-                            reprehenderit optio,
-                            laudantium eius quod, eum maxime molestiae porro omnis. Dolores aspernatur delectus impedit
-                            incidunt
-                            dolore mollitia esse natus beatae.</p>
-                        <p><a href="#" class="btn btn-primary">Download Now</a></p>
-                    </div>
-                    <div class="col-md-6" data-aos="fade-right">
-                        <img src="{{asset('assets/landingPage/img/undraw_svg_3.svg')}}" alt="Image" class="img-fluid">
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- ======= CTA Section ======= -->
@@ -239,39 +210,30 @@
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
+                <div style="text-align: justify" class="col-md-5 mb-4 mb-md-0">
                     <h3>About Marabunta Money</h3>
-                    <p>Marabunta Money is a user-friendly online platform designed to help individuals and businesses manage their finances efficiently.
-                    The website offers a range of tools for budgeting, expense tracking, and financial planning. Users can easily record and categorize their income and expenditures,
-                    generate detailed financial reports, and set personal or business financial goals.</p>
-                    <p class="social">
+                    <p>Marabunta Money adalah platform online ramah pengguna yang dirancang untuk membantu individu dan
+                        bisnis mengelola keuangan mereka secara efisien. Situs web ini menawarkan berbagai alat untuk
+                        penganggaran, pelacakan pengeluaran, dan perencanaan keuangan. Pengguna dapat dengan mudah
+                        mencatat dan mengkategorikan pendapatan dan pengeluaran mereka, menghasilkan laporan keuangan
+                        terperinci, dan menetapkan tujuan keuangan pribadi atau bisnis.</p>
+                    <p class="social text-center">
                         <a href="#"><span class="bi bi-twitter"></span></a>
                         <a href="#"><span class="bi bi-facebook"></span></a>
                         <a href="#"><span class="bi bi-instagram"></span></a>
                         <a href="#"><span class="bi bi-linkedin"></span></a>
                     </p>
                 </div>
-                <div class="col-md-7 ms-auto">
+                <div class="col-md-5 ms-auto">
                     <div class="row site-section pt-0">
-                        <div class="col-md-4 mb-4 mb-md-0">
+                        <div class="col-md-5 mb-4 mb-md-0">
                             <h3>Navigation</h3>
                             <ul class="list-unstyled">
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="{{ route('login') }}">Login</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-4 mb-4 mb-md-0">
-                            <h3>Services</h3>
-                            <ul class="list-unstyled">
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Collaboration</a></li>
-                                <li><a href="#">Todos</a></li>
-                                <li><a href="#">Events</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 mb-4 mb-md-0">
+                        <div class="col-md-5 mb-4 mb-md-0">
                             <h3>Downloads</h3>
                             <ul class="list-unstyled">
                                 <li><a href="#">Get from the App Store</a></li>
@@ -295,13 +257,13 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="{{asset('assets/landingPage/vendor/aos/aos.js')}}"></script>
-    <script src="{{asset('assets/landingPage/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('assets/landingPage/vendor/swiper/swiper-bundle.min.js')}}"></script>
-    <script src="{{asset('assets/landingPage/vendor/php-email-form/validate.js')}}"></script>
+    <script src="{{ asset('assets/landingPage/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('assets/landingPage/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/landingPage/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/landingPage/vendor/php-email-form/validate.js') }}"></script>
 
     <!-- Template Main JS File -->
-    <script src="{{asset('assets/landingPage/js/main.js')}}"></script>
+    <script src="{{ asset('assets/landingPage/js/main.js') }}"></script>
 
 </body>
 

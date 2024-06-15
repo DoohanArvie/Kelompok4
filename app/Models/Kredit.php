@@ -14,6 +14,7 @@ class Kredit extends Model
         'id_user',
         'nama_kredit',
         'awal_kredit',
+        'tenor',
         'akhir_kredit',
         'jumlah',
         'status',
