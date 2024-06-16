@@ -54,22 +54,14 @@
 
           <!-- Heading -->
           <div class="sidebar-heading">
-<<<<<<< HEAD
               Staff
-=======
-              Karyawan
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
           </div>
 
           <!-- Nav Item - Pages Collapse Menu -->
           <li class="nav-item">
               <a class="nav-link collapsed" href="{{ route('daftarKaryawan') }}">
                   <i class="fa-solid fa-user-group"></i>
-<<<<<<< HEAD
                   <span>Staff</span>
-=======
-                  <span>Karyawan</span>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
               </a>
           </li>
 
@@ -100,11 +92,7 @@
         </div>
           <!-- Nav Item - Tables -->
           <li class="nav-item">
-<<<<<<< HEAD
-              <a class="nav-link" href="{{route('downloadLaporan')}}">
-=======
-              <a class="nav-link" href="laporan.php">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
+              <a class="nav-link" href="{{ route('downloadLaporan') }}">
                   <i class="fa-solid fa-chart-pie"></i>
                   <span>Laporan</span></a>
           </li>

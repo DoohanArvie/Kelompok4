@@ -9,11 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{ asset('assets/img/uang.png') }}">
-<<<<<<< HEAD
     <title>Tagihan Bulanan</title>
-=======
-    <title>Karyawan</title>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -177,11 +173,7 @@
                                         <a href="{{ route('createTagihan') }}" class="btn btn-success"
                                             role="button">Tambah Tagihan</a>
                                     </div>
-<<<<<<< HEAD
                                     <div class="card-body table-responsive">
-=======
-                                    <div class="card-body">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                         <table class="table table-hover table-bordered text-center" id="data-table">
                                             <thead>
                                                 <tr>
@@ -201,11 +193,7 @@
                                                         <td>{{ $tagihan->nama_tagihan }}</td>
                                                         <td>{{ $tagihan->awal_tagihan }}</td>
                                                         <td>{{ $tagihan->akhir_tagihan }}</td>
-<<<<<<< HEAD
                                                         <td>Rp. {{ number_format($tagihan->jumlah) }}</td>
-=======
-                                                        <td>{{ number_format($tagihan->jumlah) }}</td>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                                         <td>{{ $tagihan->status }}</td>
                                                         <td>
                                                             <a href="{{ route('editTagihan', ['id' => $tagihan->id_tB]) }}"

@@ -3,10 +3,6 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
-=======
-
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,13 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-=======
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -65,7 +55,6 @@
                 <div class="container mt-5">
                     <div class="card">
                         <div class="card-body">
-<<<<<<< HEAD
                             <form action="{{ route('storeKredit') }}" method="post">
                                 @csrf
                                 <div>
@@ -107,50 +96,11 @@
                                     <select class="form-control" name="status" id="status" required="required">
                                         <option value="Lunas">Lunas</option>
                                         <option value="Belum Lunas" selected>Belum Lunas</option>
-=======
-                            <form action="{{ route('storeKredit') }} " method="post">
-                                @csrf
-                                <div>
-                                    <input type="hidden" name="id_user" id="id_user"
-                                        value="{{ Auth::user()->id_user }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Nama Kredit</label>
-                                    <input type="text" name="nama_kredit" id="nama_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Nama Kredit">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Tanggal Kredit</label>
-                                    <input type="date" name="awal_kredit" id="awal_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Tanggal Kredit">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Jatuh Tempo</label>
-                                    <input type="date" name="akhir_kredit" id="akhir_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Jatuh Tempo">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Jumlah</label>
-                                    <input type="number" name="jumlah" id="jumlah" class="form-control"
-                                        required='required' placeholder="Masukkan Jumlah Kredit">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="nama">Status</label>
-                                    <select class="form-control" name="status" id="status" required="required">
-                                        <option value="Lunas">Lunas</option>
-                                        <option value="belum Lunas" selected>Belum Lunas</option>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                     </select>
                                 </div>
 
                                 <div class="text-right">
-<<<<<<< HEAD
                                     <a href="{{ route('daftarKredit') }}" class="btn btn-outline-secondary mr-2" role="button">Batal</a>
-=======
-                                    <a href="{{ route('daftarKredit') }}" class="btn btn-outline-secondary mr-2"
-                                        role="button">Batal</a>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
@@ -161,13 +111,6 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     </div>
     <!-- End of Main Content -->
 
@@ -181,15 +124,6 @@
     </footer>
     <!-- End of Footer -->
 
-<<<<<<< HEAD
-=======
-    </div>
-    <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -199,10 +133,6 @@
     @include('layouts.logoutModal')
 
     <!-- Bootstrap core JavaScript-->
-<<<<<<< HEAD
-=======
-    {{-- @include('sweetalert::alert') --}}
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -219,7 +149,6 @@
     <script src="{{ asset('assets/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
 
-<<<<<<< HEAD
     <script>
         function calculateJatuhTempo() {
             const awalKredit = document.getElementById('awal_kredit').value;
@@ -234,8 +163,6 @@
         }
     </script>
 
-=======
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 </body>
 
 </html>

@@ -22,31 +22,10 @@
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <style>
         /* Add your custom styles here */
-<<<<<<< HEAD
-=======
-        /* #content {
-            animation: fadeIn 0.5s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        } */
-
-        /* Add styles for table here */
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
         .table-responsive {
             overflow-x: auto;
         }
 
-<<<<<<< HEAD
-=======
-        /* Add animation for buttons here */
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
         .btn {
             transition: all 0.3s ease;
         }
@@ -97,7 +76,6 @@
             color: white !important;
         }
 
-<<<<<<< HEAD
         /* Animation styles */
         @keyframes fadeIn {
             from {
@@ -108,34 +86,11 @@
             }
         }
 
-=======
-
-        /* Fade in effect */
-        /* @keyframes fadeInEffect {
-            0% {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInEffect 0.5s;
-        } */
-
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
         @keyframes slideInUp {
             from {
                 transform: translateY(100%);
                 opacity: 0;
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -143,7 +98,6 @@
         }
 
         .content-header {
-<<<<<<< HEAD
             animation: fadeIn 0.8s ease-in-out;
         }
 
@@ -152,22 +106,6 @@
         }
 
 
-=======
-            animation: fadeInDown 0.8s ease-in-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                transform: translateY(-20%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     </style>
 </head>
 
@@ -237,45 +175,29 @@
                         {{-- sumber pendapatan --}}
                         <div class="col-lg-7 mb-4">
                             <!-- Project Card Example -->
-<<<<<<< HEAD
                             <div class="card shadow mb-4 pb-3">
-=======
-                            <div class="card shadow mb-4">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-white">Sumber Pengeluaran</h6>
                                 </div>
 
                                 <div class="card-body">
-<<<<<<< HEAD
                                     <ul class="list-group list-group-flush">
                                         @foreach ($sumbers->take(6) as $sumber)
                                             <li class="list-group-item">{{ $loop->index + 1 }}.
                                                 {{ $sumber->nama_sumber }}</li>
                                         @endforeach
                                     </ul>
-=======
-                                    <div class="chart-area">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-5">
-<<<<<<< HEAD
-=======
-
-                            <!-- Area Chart -->
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                             <div class="card shadow mb-4">
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-white">Pengeluaran Minggu Ini</h6>
                                 </div>
                                 <div class="card-body">
-<<<<<<< HEAD
                                     <div class="chart-pie pt-4 pb-2">
                                         <canvas id="chartDonut"></canvas>
                                     </div>
@@ -283,10 +205,6 @@
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-danger"></i> Pengeluaran
                                         </span>
-=======
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                     </div>
                                 </div>
                             </div>
@@ -310,11 +228,7 @@
                                                 <span class="text">Tambah pengeluaran</span>
                                             </a>
                                         </div>
-<<<<<<< HEAD
                                         <div class="card-body table-responsive">
-=======
-                                        <div class="card-body">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                             <table class="table table-hover table-bordered text-center" id="data-table">
                                                 <thead>
                                                     <tr>
@@ -331,7 +245,6 @@
                                                             <td>{{ $loop->index + 1 }}</td>
                                                             <td>{{ $pengeluaran->tgl_pengeluaran }}</td>
                                                             <td>Rp.{{ number_format($pengeluaran->jumlah) }}</td>
-<<<<<<< HEAD
                                                             <td>
                                                                 @isset($pengeluaran->sumber)
                                                                     {{ $pengeluaran->sumber->nama_sumber }}
@@ -339,9 +252,6 @@
                                                                     Sumber tidak tersedia
                                                                 @endisset
                                                             </td>
-=======
-                                                            <td>{{ $pengeluaran->sumber->nama_sumber }}</td>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                                             <td>
                                                                 <a href="{{ route('editPengeluaran', ['id' => $pengeluaran->id_pengeluaran]) }}"
                                                                     class="btn btn-warning btn-sm">
@@ -421,7 +331,6 @@
     <script src="{{ asset('assets/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
 
-<<<<<<< HEAD
     {{-- dougnut chart --}}
     <script>
         // Wait for the DOM to fully load
@@ -470,8 +379,6 @@
     </script>
     {{-- dougnut chart --}}
 
-=======
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
     {{-- include sweetalert --}}
     @include('sweetalert::alert')
 

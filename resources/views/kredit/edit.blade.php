@@ -58,7 +58,6 @@
                 <div class="container mt-5">
                     <div class="card">
                         <div class="card-body">
-<<<<<<< HEAD
                         <form action="{{ route('updateKredit', ['id' => $kredit->id_kredit]) }}" method="post">
                             @csrf
                             @method('PUT')
@@ -107,49 +106,6 @@
                         </form>
 
 
-=======
-                            <form action="{{ route('updateKredit', ['id' => $kredit->id_kredit]) }} " method="post">
-                                @csrf
-                                <div>
-                                    <input type="hidden" name="id_user" id="id_user"
-                                        value="{{ Auth::user()->id_user }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Nama Kredit</label>
-                                    <input type="text" name="nama_kredit" id="nama_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Nama Kredit" value="{{ old('nama_kredit', $kredit->nama_kredit) }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Tanggal Kredit</label>
-                                    <input type="date" name="awal_kredit" id="awal_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Tanggal Kredit" value="{{ old('awal_kredit', $kredit->awal_kredit) }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Jatuh Tempo</label>
-                                    <input type="date" name="akhir_kredit" id="akhir_kredit" class="form-control"
-                                        required='required' placeholder="Masukkan Jatuh Tempo" value="{{ old('akhir_kredit', $kredit->akhir_kredit) }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Jumlah</label>
-                                    <input type="number" name="jumlah" id="jumlah" class="form-control"
-                                        required='required' placeholder="Masukkan Jumlah Kredit" value="{{ old('jumlah', $kredit->jumlah) }}">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="nama">Status</label>
-                                    <select value="{{ old('status', $kredit->status) }}" class="form-control" name="status" id="status" required="required">
-                                        <option value="Lunas">Lunas</option>
-                                        <option value="belum Lunas">Belum Lunas</option>
-                                    </select>
-                                </div>
-
-                                <div class="text-right">
-                                    <a href="{{ route('daftarKredit') }}" class="btn btn-outline-secondary mr-2"
-                                        role="button">Batal</a>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                         </div>
                     </div>
                 </div>
@@ -206,7 +162,6 @@
     <script src="{{ asset('assets/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
 
-<<<<<<< HEAD
     <script>
         function calculateJatuhTempo() {
             var awalKredit = document.getElementById("awal_kredit").value;
@@ -218,8 +173,6 @@
         }
     </script>
 
-=======
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 </body>
 
 </html>

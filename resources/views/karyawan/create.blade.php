@@ -10,11 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{ asset('assets/img/uang.png') }}">
-<<<<<<< HEAD
     <title>Tambah Staff</title>
-=======
-    <title>Tambah Karyawan</title>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -44,20 +40,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-<<<<<<< HEAD
                             <h1 class="m-0">Tambah Staff</h1>
-=======
-                            <h1 class="m-0">Tambah Karyawan</h1>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-<<<<<<< HEAD
                                 <li class="breadcrumb-item active">Tambah Staff</li>
-=======
-                                <li class="breadcrumb-item active">Tambah Karyawan</li>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -73,7 +61,6 @@
                             <form action="{{ route('storeKaryawan') }}" method="post">
                                 @csrf
                                 <div class="">
-<<<<<<< HEAD
                                     <input type="hidden" name="id_user" id="id_user"
                                         value="{{ Auth::user()->id_user }}">
                                 </div>
@@ -86,46 +73,25 @@
                                     <label for="npwp">NPWP Staff</label>
                                     <input type="text" name="npwp" id="npwp" class="form-control"
                                         placeholder="Masukkan NPWP Staff">
-=======
-                                    <input type="hidden" name="id_user" id="id_user" value="{{ Auth::user()->id_user }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="nama">Nama Karyawan</label>
-                                    <input type="text" name="nama" id="nama" class="form-control"
-                                        required='required' placeholder="Masukkan Nama Karyawan">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 </div>
                                 <div class="form-group">
                                     <label for="posisi">Posisi</label>
                                     <input type="text" name="posisi" id="posisi" class="form-control"
-<<<<<<< HEAD
                                         required='required' placeholder="Masukkan Posisi Staff">
-=======
-                                        required='required' placeholder="Masukkan Posisi Karyawan">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 </div>
                                 <div class="form-group">
                                     <label for="gaji">Gaji</label>
                                     <input type="number" name="gaji" id="gaji" class="form-control"
-<<<<<<< HEAD
                                         required='required' placeholder="Masukkan Gaji Staff">
-=======
-                                        required='required' placeholder="Masukkan Gaji Karyawan">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 </div>
                                 <div class="form-group">
                                     <label for="umur">Umur</label>
                                     <input type="number" name="umur" id="umur" class="form-control"
-<<<<<<< HEAD
                                         required='required' placeholder="Masukkan Umur Staff">
-=======
-                                        required='required' placeholder="Masukkan Umur Karyawan">
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 </div>
                                 <div class="form-group">
                                     <label for="kontak">Kontak</label>
                                     <input type="number" name="kontak" id="kontak" class="form-control"
-<<<<<<< HEAD
                                         required='required' placeholder="Masukkan Kontak Staff">
                                 </div>
                                 <div class="form-group">
@@ -144,14 +110,6 @@
                                     <label for="alamat">Alamat</label>
                                     <textarea name="alamat" id="alamat" class="form-control" required='required'
                                         placeholder="Masukkan Alamat Staff" rows="3"></textarea>
-=======
-                                        required='required' placeholder="Masukkan Kontak Karyawan">
-                                </div>
-                                <div class="form-group">
-                                    <label for="alamat">Alamat</label>
-                                    <textarea name="alamat" id="alamat" class="form-control" required='required' placeholder="Masukkan Alamat Karyawan"
-                                        rows="3"></textarea>
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
                                 </div>
                                 <div class="text-right">
                                     <a href="{{ route('daftarKaryawan') }}" class="btn btn-outline-secondary mr-2"

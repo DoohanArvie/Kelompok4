@@ -72,11 +72,7 @@
                     required autofocus autocomplete="name" />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> b79dd3d9d5bced618592a1bef44bc0c7214fe185
             <!-- Email Address -->
             <div class="mt-4">
                 <x-input-label for="email" :value="__('Email')" />
